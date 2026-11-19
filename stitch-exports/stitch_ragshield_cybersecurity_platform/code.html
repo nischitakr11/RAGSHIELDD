@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+
+<html class="h-full bg-black" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>RAGSHIELD. | Cryptographic Knowledge Base Integrity</title>
+<!-- Tailwind CSS v3 with Plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts: Cinzel, Cormorant Garamond, Inter, JetBrains Mono -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800;900&amp;family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&amp;family=Inter:wght@300;400;500;600&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<script data-purpose="tailwind-config">
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            serifBrand: ['Cinzel', 'serif'],
+            serifTagline: ['Cormorant Garamond', 'serif'],
+            sans: ['Inter', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            gold: {
+              100: '#FDF8EC',
+              200: '#F7ECC8',
+              300: '#F3E5AB',
+              400: '#E6C983',
+              500: '#C5A059',
+              600: '#9C7A38',
+              700: '#6E5321',
+              900: '#2A1F09',
+            },
+            obsidian: {
+              800: '#0F0E11',
+              900: '#08080A',
+              950: '#040405',
+            }
+          }
+        }
+      }
+    };
+  </script>
+<style data-purpose="typography-metallic">
+    /* Radiant Golden Metallic Gradient Text */
+    .text-gold-metallic {
+      background: linear-gradient(135deg, #FFF6D6 0%, #F5E6BE 28%, #D4AF37 55%, #A77B28 85%, #EAC675 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 2px 28px rgba(212, 175, 55, 0.35));
+    }
+    
+    .text-gold-subtle {
+      background: linear-gradient(135deg, #FFF9E6 10%, #E8CD8A 60%, #B88E3E 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .ambient-radial-gold {
+      background: radial-gradient(ellipse 75% 55% at 50% 40%, rgba(197, 160, 89, 0.12), rgba(6, 6, 8, 0) 80%);
+    }
+
+    /* 3D Interactive Floating Button Presentation */
+    .btn-3d-access {
+      transform: perspective(600px) rotateX(12deg);
+      box-shadow: 
+        0 1px 0 rgba(255, 230, 160, 0.5) inset,
+        0 8px 0 #3a2b0c,
+        0 12px 24px rgba(0, 0, 0, 0.8),
+        0 0 35px rgba(212, 175, 55, 0.35);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .btn-3d-access:hover {
+      transform: perspective(600px) rotateX(4deg) translateY(-3px);
+      box-shadow: 
+        0 1px 0 rgba(255, 240, 190, 0.8) inset,
+        0 11px 0 #4a3810,
+        0 18px 30px rgba(0, 0, 0, 0.9),
+        0 0 50px rgba(212, 175, 55, 0.65);
+    }
+    .btn-3d-access:active {
+      transform: perspective(600px) rotateX(0deg) translateY(6px);
+      box-shadow: 
+        0 1px 0 rgba(255, 230, 160, 0.3) inset,
+        0 2px 0 #3a2b0c,
+        0 4px 12px rgba(0, 0, 0, 0.9),
+        0 0 25px rgba(212, 175, 55, 0.4);
+    }
+
+    /* Cinematic Entrance Stage Transitions */
+    .stage-anim-badge {
+      opacity: 0;
+      transform: translateY(-12px);
+      transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .stage-anim-title {
+      opacity: 0;
+      transform: scale(0.94);
+      filter: blur(8px);
+      transition: opacity 1.5s cubic-bezier(0.16, 1, 0.3, 1), transform 1.5s cubic-bezier(0.16, 1, 0.3, 1), filter 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .stage-anim-tagline {
+      opacity: 0;
+      transform: translateY(14px);
+      transition: opacity 1.4s cubic-bezier(0.16, 1, 0.3, 1) 0.3s, transform 1.4s cubic-bezier(0.16, 1, 0.3, 1) 0.3s;
+    }
+    .stage-anim-sub {
+      opacity: 0;
+      transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.6s;
+    }
+    .stage-anim-cta {
+      opacity: 0;
+      transform: translateY(20px) scale(0.92);
+      transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .stage-anim-nodes {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* Active entrance classes triggered sequentially */
+    .stage-active {
+      opacity: 1 !important;
+      transform: none !important;
+      filter: none !important;
+    }
+  </style>
+</head>
+<body class="relative min-h-screen w-full overflow-x-hidden bg-[#060608] text-slate-200 antialiased selection:bg-gold-500 selection:text-black">
+<!-- BEGIN: Full 3D Interactive Three.js Scene Embedding -->
+<!-- STITCH_THREEJS_START:ANIMATION_16 class="absolute inset-0 w-full h-full bg-transparent pointer-events-auto z-0" -->
+<div class="absolute inset-0 w-full h-full bg-transparent pointer-events-auto z-0" style="display:block;">
+<script src="https://ajax.googleapis.com/ajax/libs/threejs/r125/three.min.js"></script>
+<div id="threejs-container-ANIMATION_16" style="width:100%;height:100%"></div>
+<script>
+(function() {
+  const container = document.getElementById('threejs-container-ANIMATION_16');
+  const devicePixelRatio = window.devicePixelRatio || 1;
+  // RAGSHIELD Immersive 3D Entry Scene in Three.js
+// Features: Interactive mountain terrain, realistic floating 3D objects (Document Stack, SHA-256 Core, Hash-Linked Ledger Blocks, 3D ACCESS PLATFORM element), sequential entrance animation, lighting, reflections & shadows.
+
+const width = container.clientWidth || window.innerWidth;
+const height = container.clientHeight || window.innerHeight;
+
+const scene = new THREE.Scene();
+scene.fog = new THREE.FogExp2(0x0a0908, 0.015);
+
+const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 100);
+camera.position.set(0, 1.5, 14);
+
+const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true, powerPreference: "high-performance" });
+renderer.setSize(width, height);
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+renderer.shadowMap.enabled = true;
+renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 1.25;
+container.appendChild(renderer.domElement);
+
+// --- LIGHTING ---
+const ambientLight = new THREE.AmbientLight(0x2a221b, 1.2);
+scene.add(ambientLight);
+
+// Warm champagne gold directional key light
+const dirLight = new THREE.DirectionalLight(0xffdfa0, 2.5);
+dirLight.position.set(6, 12, 8);
+dirLight.castShadow = true;
+dirLight.shadow.mapSize.width = 2048;
+dirLight.shadow.mapSize.height = 2048;
+dirLight.shadow.bias = -0.0005;
+scene.add(dirLight);
+
+// Backlit rim light for moody silhouette
+const rimLight = new THREE.DirectionalLight(0xd4af37, 1.8);
+rimLight.position.set(-8, -4, -6);
+scene.add(rimLight);
+
+// Subtle point lights under the three core objects
+const docLight = new THREE.PointLight(0xc5a059, 2.2, 8);
+docLight.position.set(-4.5, -0.5, 2);
+scene.add(docLight);
+
+const hashLight = new THREE.PointLight(0xffe8a3, 3.5, 9);
+hashLight.position.set(0, -0.2, 2.5);
+scene.add(hashLight);
+
+const ledgerLight = new THREE.PointLight(0xd4af37, 2.5, 8);
+ledgerLight.position.set(4.5, -0.5, 2);
+scene.add(ledgerLight);
+
+// --- MATERIALS ---
+const goldMaterial = new THREE.MeshStandardMaterial({
+  color: 0xd4af37,
+  metalness: 0.85,
+  roughness: 0.25,
+  emissive: 0x221705,
+  emissiveIntensity: 0.3
+});
+
+const darkObsidianMaterial = new THREE.MeshStandardMaterial({
+  color: 0x161517,
+  metalness: 0.6,
+  roughness: 0.35
+});
+
+const glassMaterial = new THREE.MeshPhysicalMaterial({
+  color: 0x24201c,
+  metalness: 0.2,
+  roughness: 0.15,
+  transmission: 0.7,
+  thickness: 0.8,
+  transparent: true,
+  opacity: 0.88,
+  reflectivity: 0.9
+});
+
+const glowEdgeMaterial = new THREE.LineBasicMaterial({
+  color: 0xffdf88,
+  linewidth: 1.5,
+  transparent: true,
+  opacity: 0.75
+});
+
+// --- 1. MOUNTAIN TERRAIN (Interactive Wireframe & Relief) ---
+const terrainGroup = new THREE.Group();
+const terrainGeo = new THREE.PlaneGeometry(36, 18, 90, 60);
+
+// Deform vertices for jagged obsidian mountain ridge
+const posAttr = terrainGeo.attributes.position;
+for (let i = 0; i < posAttr.count; i++) {
+  const x = posAttr.getX(i);
+  const y = posAttr.getY(i);
+  // Mountain ridge wave functions
+  const distFromCenter = Math.abs(x) / 18;
+  const ridge = Math.sin(x * 0.45) * 1.2 + Math.cos(y * 0.6) * 0.8 + Math.sin(x * 0.9 + y * 0.7) * 0.5;
+  const heightFactor = Math.pow(distFromCenter, 1.4) * 2.8 - (y * 0.25);
+  const z = (ridge * 0.6 + heightFactor) * 0.9;
+  posAttr.setZ(i, z);
+}
+terrainGeo.computeVertexNormals();
+
+const terrainMat = new THREE.MeshStandardMaterial({
+  color: 0x0e0d0f,
+  roughness: 0.85,
+  metalness: 0.35,
+  flatShading: true
+});
+const terrainMesh = new THREE.Mesh(terrainGeo, terrainMat);
+terrainMesh.rotation.x = -Math.PI / 2.3;
+terrainMesh.position.set(0, -4.5, -1);
+terrainMesh.receiveShadow = true;
+terrainGroup.add(terrainMesh);
+
+// Glowing wireframe contour lines over the terrain
+const wireGeo = new THREE.WireframeGeometry(terrainGeo);
+const wireMat = new THREE.LineBasicMaterial({ color: 0x6e5225, transparent: true, opacity: 0.22 });
+const wireMesh = new THREE.LineSegments(wireGeo, wireMat);
+wireMesh.rotation.x = -Math.PI / 2.3;
+wireMesh.position.set(0, -4.48, -1);
+terrainGroup.add(wireMesh);
+
+scene.add(terrainGroup);
+
+// --- 2. FLOATING OBJECT 1: REALISTIC 3D DOCUMENT STACK ---
+const docGroup = new THREE.Group();
+docGroup.position.set(-4.5, -1.2, 0);
+
+// Base pedestal
+const docPedestal = new THREE.Mesh(
+  new THREE.CylinderGeometry(1.6, 1.9, 0.25, 32),
+  darkObsidianMaterial
+);
+docPedestal.receiveShadow = true;
+docGroup.add(docPedestal);
+
+const docPedestalRing = new THREE.Mesh(
+  new THREE.TorusGeometry(1.7, 0.03, 16, 64),
+  goldMaterial
+);
+docPedestalRing.rotation.x = Math.PI / 2;
+docPedestalRing.position.y = 0.12;
+docGroup.add(docPedestalRing);
+
+// 3 Layered translucent cryptographic document sheets with gold borders
+const docSheets = [];
+for (let i = 0; i < 3; i++) {
+  const sheetGroup = new THREE.Group();
+  const sheetGeo = new THREE.BoxGeometry(1.5, 2.1, 0.04);
+  const sheetMesh = new THREE.Mesh(sheetGeo, glassMaterial);
+  sheetMesh.castShadow = true;
+  sheetGroup.add(sheetMesh);
+
+  // Gold wire edge
+  const edges = new THREE.EdgesGeometry(sheetGeo);
+  const edgeLine = new THREE.LineSegments(edges, glowEdgeMaterial);
+  sheetGroup.add(edgeLine);
+
+  // Document text micro-bars (gold lines)
+  for (let l = 0; l < 4; l++) {
+    const barGeo = new THREE.BoxGeometry(0.9 - l * 0.12, 0.06, 0.05);
+    const barMesh = new THREE.Mesh(barGeo, goldMaterial);
+    barMesh.position.set(-0.1 + (l % 2) * 0.05, 0.5 - l * 0.32, 0.01);
+    sheetGroup.add(barMesh);
+  }
+
+  // Security badge checkmark dot
+  const dot = new THREE.Mesh(new THREE.CylinderGeometry(0.1, 0.1, 0.06, 16), goldMaterial);
+  dot.rotation.x = Math.PI / 2;
+  dot.position.set(-0.45, -0.7, 0.02);
+  sheetGroup.add(dot);
+
+  sheetGroup.position.set(i * 0.2 - 0.2, 0.9 + i * 0.28, -i * 0.25);
+  sheetGroup.rotation.set(-0.25, 0.35 + i * 0.08, -0.1);
+  docGroup.add(sheetGroup);
+  docSheets.push(sheetGroup);
+}
+scene.add(docGroup);
+
+// --- 3. FLOATING OBJECT 2: REALISTIC SHA-256 FINGERPRINT & CRYPTOGRAPHIC CORE ---
+const hashGroup = new THREE.Group();
+hashGroup.position.set(0, -0.8, 0.6);
+
+// Central octagonal floating pedestal
+const hashPedestal = new THREE.Mesh(
+  new THREE.CylinderGeometry(1.8, 2.1, 0.3, 8),
+  darkObsidianMaterial
+);
+hashPedestal.receiveShadow = true;
+hashGroup.add(hashPedestal);
+
+const hashRing1 = new THREE.Mesh(
+  new THREE.TorusGeometry(1.95, 0.035, 16, 8),
+  goldMaterial
+);
+hashRing1.rotation.x = Math.PI / 2;
+hashRing1.position.y = 0.15;
+hashGroup.add(hashRing1);
+
+// Outer spinning gimbal rings
+const gimbal1 = new THREE.Mesh(new THREE.TorusGeometry(1.5, 0.03, 16, 64), goldMaterial);
+gimbal1.rotation.x = 0.6;
+hashGroup.add(gimbal1);
+
+const gimbal2 = new THREE.Mesh(new THREE.TorusGeometry(1.35, 0.025, 16, 64), goldMaterial);
+gimbal2.rotation.y = 0.8;
+hashGroup.add(gimbal2);
+
+// Central faceted crypto-diamond core
+const coreGeo = new THREE.OctahedronGeometry(0.85, 0);
+const coreMesh = new THREE.Mesh(coreGeo, new THREE.MeshStandardMaterial({
+  color: 0xffdf88,
+  metalness: 0.9,
+  roughness: 0.15,
+  emissive: 0xd4af37,
+  emissiveIntensity: 0.55
+}));
+coreMesh.castShadow = true;
+coreMesh.position.y = 1.25;
+hashGroup.add(coreMesh);
+
+// Glowing wire edge on octahedron
+const coreEdges = new THREE.EdgesGeometry(coreGeo);
+const coreLine = new THREE.LineSegments(coreEdges, new THREE.LineBasicMaterial({ color: 0xffffff, linewidth: 2 }));
+coreLine.position.y = 1.25;
+hashGroup.add(coreLine);
+
+// Fingerprint biometric ring layers
+const fpGroup = new THREE.Group();
+fpGroup.position.y = 1.25;
+for (let r = 0; r < 4; r++) {
+  const arcLength = Math.PI * (1.1 + r * 0.18);
+  const ringGeo = new THREE.TorusGeometry(0.35 + r * 0.22, 0.02, 12, 32, arcLength);
+  const ringMesh = new THREE.Mesh(ringGeo, goldMaterial);
+  ringMesh.rotation.z = r * 0.7;
+  fpGroup.add(ringMesh);
+}
+hashGroup.add(fpGroup);
+
+scene.add(hashGroup);
+
+// --- 4. FLOATING OBJECT 3: REALISTIC HASH-LINKED LEDGER BLOCKS ---
+const ledgerGroup = new THREE.Group();
+ledgerGroup.position.set(4.5, -1.2, 0);
+
+// Base pedestal
+const ledgerPedestal = new THREE.Mesh(
+  new THREE.CylinderGeometry(1.6, 1.9, 0.25, 32),
+  darkObsidianMaterial
+);
+ledgerPedestal.receiveShadow = true;
+ledgerGroup.add(ledgerPedestal);
+
+const ledgerPedRing = new THREE.Mesh(
+  new THREE.TorusGeometry(1.7, 0.03, 16, 64),
+  goldMaterial
+);
+ledgerPedRing.rotation.x = Math.PI / 2;
+ledgerPedRing.position.y = 0.12;
+ledgerGroup.add(ledgerPedRing);
+
+// 3 Interlocking Gold & Obsidian Ledger Cubes
+const blocks = [];
+for (let b = 0; b < 3; b++) {
+  const blockGroup = new THREE.Group();
+  const boxGeo = new THREE.BoxGeometry(0.9, 0.9, 0.9);
+  
+  // Mixed luxury obsidian and gold bevel block
+  const isGold = (b === 1);
+  const boxMesh = new THREE.Mesh(boxGeo, isGold ? goldMaterial : glassMaterial);
+  boxMesh.castShadow = true;
+  boxMesh.receiveShadow = true;
+  blockGroup.add(boxMesh);
+
+  // Glowing borders
+  const edges = new THREE.EdgesGeometry(boxGeo);
+  const line = new THREE.LineSegments(edges, glowEdgeMaterial);
+  blockGroup.add(line);
+
+  // Cryptographic inner pad / lock icon symbol for block #2
+  if (isGold) {
+    const lockArch = new THREE.Mesh(new THREE.TorusGeometry(0.18, 0.04, 16, 16, Math.PI), darkObsidianMaterial);
+    lockArch.position.set(0, 0.12, 0.46);
+    blockGroup.add(lockArch);
+    const lockBody = new THREE.Mesh(new THREE.BoxGeometry(0.3, 0.25, 0.08), darkObsidianMaterial);
+    lockBody.position.set(0, -0.08, 0.46);
+    blockGroup.add(lockBody);
+  } else {
+    // Hash label plate
+    const plate = new THREE.Mesh(new THREE.BoxGeometry(0.5, 0.18, 0.02), goldMaterial);
+    plate.position.set(0, 0, 0.46);
+    blockGroup.add(plate);
+  }
+
+  // Positioning stepped chain sequence
+  blockGroup.position.set((b - 1) * 0.95, 0.95 + b * 0.28, (b - 1) * 0.35);
+  blockGroup.rotation.set(0.35, -0.45 + b * 0.2, 0.15);
+  ledgerGroup.add(blockGroup);
+  blocks.push(blockGroup);
+}
+
+// Glowing laser beam linking the blocks
+const linkBeamGeo = new THREE.CylinderGeometry(0.02, 0.02, 2.2, 16);
+const linkBeamMat = new THREE.MeshBasicMaterial({ color: 0xffdf88 });
+const linkBeam = new THREE.Mesh(linkBeamGeo, linkBeamMat);
+linkBeam.rotation.z = Math.PI / 2.7;
+linkBeam.position.set(0, 1.25, 0);
+ledgerGroup.add(linkBeam);
+
+scene.add(ledgerGroup);
+
+// --- 5. CONNECTING CRYPTOGRAPHIC DATA PATHWAYS (Floor Beams) ---
+const pathMaterial = new THREE.LineDashedMaterial({
+  color: 0xd4af37,
+  dashSize: 0.3,
+  gapSize: 0.15,
+  linewidth: 2,
+  transparent: true,
+  opacity: 0.65
+});
+
+function createConnectingCurve(p1, p2) {
+  const curve = new THREE.QuadraticBezierCurve3(
+    p1,
+    new THREE.Vector3((p1.x + p2.x) * 0.5, p1.y + 0.35, (p1.z + p2.z) * 0.5),
+    p2
+  );
+  const points = curve.getPoints(40);
+  const geo = new THREE.BufferGeometry().setFromPoints(points);
+  const line = new THREE.Line(geo, pathMaterial);
+  line.computeLineDistances();
+  return line;
+}
+
+const path1 = createConnectingCurve(
+  new THREE.Vector3(-4.5, -0.9, 0),
+  new THREE.Vector3(0, -0.5, 0.6)
+);
+scene.add(path1);
+
+const path2 = createConnectingCurve(
+  new THREE.Vector3(0, -0.5, 0.6),
+  new THREE.Vector3(4.5, -0.9, 0)
+);
+scene.add(path2);
+
+// Data particle pulses traveling along pathways
+const pulseGeo = new THREE.SphereGeometry(0.08, 16, 16);
+const pulseMat = new THREE.MeshBasicMaterial({ color: 0xfff0b0 });
+const pulse1 = new THREE.Mesh(pulseGeo, pulseMat);
+const pulse2 = new THREE.Mesh(pulseGeo, pulseMat);
+scene.add(pulse1);
+scene.add(pulse2);
+
+// --- 6. FLOATING 3D "ACCESS PLATFORM" ELEMENT ---
+const ctaGroup = new THREE.Group();
+ctaGroup.position.set(0, 0.85, 1.2);
+
+const ctaBaseGeo = new THREE.BoxGeometry(3.2, 0.72, 0.28);
+const ctaBaseMat = new THREE.MeshStandardMaterial({
+  color: 0x1f1b16,
+  metalness: 0.85,
+  roughness: 0.25,
+  emissive: 0x241a08,
+  emissiveIntensity: 0.4
+});
+const ctaMesh = new THREE.Mesh(ctaBaseGeo, ctaBaseMat);
+ctaMesh.castShadow = true;
+ctaGroup.add(ctaMesh);
+
+// Golden chamfered border for CTA
+const ctaEdges = new THREE.EdgesGeometry(ctaBaseGeo);
+const ctaBorder = new THREE.LineSegments(ctaEdges, new THREE.LineBasicMaterial({ color: 0xd4af37, linewidth: 2 }));
+ctaGroup.add(ctaBorder);
+
+// Embedded arrow geometry in gold
+const arrowShaft = new THREE.Mesh(new THREE.BoxGeometry(0.35, 0.05, 0.08), goldMaterial);
+arrowShaft.position.set(0.95, 0, 0.16);
+ctaGroup.add(arrowShaft);
+
+const arrowHead = new THREE.Mesh(new THREE.ConeGeometry(0.12, 0.2, 3), goldMaterial);
+arrowHead.rotation.z = -Math.PI / 2;
+arrowHead.position.set(1.18, 0, 0.16);
+ctaGroup.add(arrowHead);
+
+scene.add(ctaGroup);
+
+// --- 7. AMBIENT PARTICLES (Floating cryptographic gold dust) ---
+const particleCount = 180;
+const particleGeo = new THREE.BufferGeometry();
+const particlePos = new Float32Array(particleCount * 3);
+for (let i = 0; i < particleCount * 3; i += 3) {
+  particlePos[i] = (Math.random() - 0.5) * 22;
+  particlePos[i + 1] = (Math.random() - 0.5) * 12 + 1;
+  particlePos[i + 2] = (Math.random() - 0.5) * 14;
+}
+particleGeo.setAttribute('position', new THREE.BufferAttribute(particlePos, 3));
+const particleMat = new THREE.PointsMaterial({
+  color: 0xd4af37,
+  size: 0.07,
+  transparent: true,
+  opacity: 0.65,
+  blending: THREE.AdditiveBlending
+});
+const particles = new THREE.Points(particleGeo, particleMat);
+scene.add(particles);
+
+// --- SEQUENTIAL ENTRANCE TIMELINE STATE ---
+let startTime = performance.now();
+let isIntroActive = true;
+
+// Initial offscreen / zeroed positions for entrance animation
+terrainGroup.position.y = -10;
+docGroup.position.y = -6;
+docGroup.scale.set(0.01, 0.01, 0.01);
+
+hashGroup.position.y = -6;
+hashGroup.scale.set(0.01, 0.01, 0.01);
+
+ledgerGroup.position.y = -6;
+ledgerGroup.scale.set(0.01, 0.01, 0.01);
+
+ctaGroup.scale.set(0.01, 0.01, 0.01);
+ctaGroup.position.y = -2;
+
+// Dispatch event to HTML UI to sequence text reveals in sync with 3D models
+function triggerHtmlReveal(stage) {
+  const event = new CustomEvent("ragshield-stage", { detail: { stage } });
+  window.dispatchEvent(event);
+}
+
+// Mouse interaction tracking
+const mouse = { x: 0, y: 0, targetX: 0, targetY: 0 };
+window.addEventListener('mousemove', (e) => {
+  mouse.targetX = (e.clientX / window.innerWidth - 0.5) * 2;
+  mouse.targetY = -(e.clientY / window.innerHeight - 0.5) * 2;
+});
+
+// Click interaction for CTA
+window.addEventListener('click', (e) => {
+  const raycaster = new THREE.Raycaster();
+  const mouseCoord = new THREE.Vector2(
+    (e.clientX / window.innerWidth) * 2 - 1,
+    -(e.clientY / window.innerHeight) * 2 + 1
+  );
+  raycaster.setFromCamera(mouseCoord, camera);
+  const intersects = raycaster.intersectObjects([ctaMesh, arrowShaft, arrowHead]);
+  if (intersects.length > 0) {
+    // Pulse animation and navigation trigger
+    ctaGroup.scale.set(0.92, 0.92, 0.92);
+    setTimeout(() => {
+      const navBtn = document.getElementById('hidden-access-trigger');
+      if (navBtn) navBtn.click();
+    }, 180);
+  }
+});
+
+// Window resize handler
+window.addEventListener('resize', () => {
+  const w = container.clientWidth || window.innerWidth;
+  const h = container.clientHeight || window.innerHeight;
+  camera.aspect = w / h;
+  camera.updateProjectionMatrix();
+  renderer.setSize(w, h);
+});
+
+// --- RENDER LOOP ---
+function animate(currentTime) {
+  requestAnimationFrame(animate);
+
+  const elapsed = (currentTime - startTime) * 0.001; // seconds
+
+  // Smooth mouse lerp for camera & terrain parallax
+  mouse.x += (mouse.targetX - mouse.x) * 0.04;
+  mouse.y += (mouse.targetY - mouse.y) * 0.04;
+
+  camera.position.x = mouse.x * 1.2;
+  camera.position.y = 1.5 + mouse.y * 0.6;
+  camera.lookAt(0, 0.2, 0);
+
+  // --- SEQUENTIAL ENTRANCE TIMING ---
+  // T=0.2s: Terrain emerges
+  if (elapsed > 0.2 && elapsed < 2.0) {
+    const tProgress = Math.min(1, (elapsed - 0.2) / 1.4);
+    const ease = 1 - Math.pow(1 - tProgress, 3);
+    terrainGroup.position.y = -10 + ease * 10;
+  } else if (elapsed >= 2.0) {
+    terrainGroup.position.y = 0;
+  }
+
+  // T=0.8s: Document objects float in
+  if (elapsed > 0.8 && elapsed < 2.4) {
+    const dProgress = Math.min(1, (elapsed - 0.8) / 1.2);
+    const ease = 1 - Math.pow(1 - dProgress, 3);
+    docGroup.position.y = -6 + ease * 4.8;
+    const s = 0.01 + ease * 0.99;
+    docGroup.scale.set(s, s, s);
+    if (dProgress > 0.6) triggerHtmlReveal('documents');
+  } else if (elapsed >= 2.4) {
+    docGroup.position.y = -1.2;
+    docGroup.scale.set(1, 1, 1);
+  }
+
+  // T=1.4s: SHA-256 fingerprint object materializes
+  if (elapsed > 1.4 && elapsed < 3.0) {
+    const hProgress = Math.min(1, (elapsed - 1.4) / 1.2);
+    const ease = 1 - Math.pow(1 - hProgress, 3);
+    hashGroup.position.y = -6 + ease * 5.2;
+    const s = 0.01 + ease * 0.99;
+    hashGroup.scale.set(s, s, s);
+    if (hProgress > 0.6) triggerHtmlReveal('fingerprint');
+  } else if (elapsed >= 3.0) {
+    hashGroup.position.y = -0.8;
+    hashGroup.scale.set(1, 1, 1);
+  }
+
+  // T=2.0s: Ledger blocks assemble sequentially
+  if (elapsed > 2.0 && elapsed < 3.6) {
+    const lProgress = Math.min(1, (elapsed - 2.0) / 1.2);
+    const ease = 1 - Math.pow(1 - lProgress, 3);
+    ledgerGroup.position.y = -6 + ease * 4.8;
+    const s = 0.01 + ease * 0.99;
+    ledgerGroup.scale.set(s, s, s);
+    if (lProgress > 0.6) triggerHtmlReveal('ledger');
+  } else if (elapsed >= 3.6) {
+    ledgerGroup.position.y = -1.2;
+    ledgerGroup.scale.set(1, 1, 1);
+  }
+
+  // T=2.8s: Branding becomes prominent & ACCESS PLATFORM appears
+  if (elapsed > 2.8 && elapsed < 4.2) {
+    const cProgress = Math.min(1, (elapsed - 2.8) / 1.0);
+    const ease = 1 - Math.pow(1 - cProgress, 3);
+    ctaGroup.position.y = -2 + ease * 2.85;
+    const s = 0.01 + ease * 0.99;
+    ctaGroup.scale.set(s, s, s);
+    triggerHtmlReveal('cta');
+  } else if (elapsed >= 4.2) {
+    ctaGroup.position.y = 0.85;
+    ctaGroup.scale.set(1, 1, 1);
+  }
+
+  // --- CONTINUOUS AMBIENT IDLE MOTIONS ---
+  const t = elapsed;
+
+  // Documents hovering & floating sheets
+  docGroup.position.y = -1.2 + Math.sin(t * 1.5) * 0.08;
+  docSheets.forEach((s, idx) => {
+    s.position.y = (0.9 + idx * 0.28) + Math.sin(t * 1.8 + idx * 1.2) * 0.04;
+    s.rotation.z = -0.1 + Math.cos(t * 1.2 + idx) * 0.02;
+  });
+
+  // SHA-256 core rotation & biometric breathing
+  hashGroup.position.y = -0.8 + Math.cos(t * 1.4) * 0.09;
+  coreMesh.rotation.y = t * 0.6;
+  coreMesh.rotation.x = t * 0.4;
+  coreLine.rotation.y = t * 0.6;
+  coreLine.rotation.x = t * 0.4;
+  gimbal1.rotation.x = 0.6 + Math.sin(t * 1.2) * 0.2;
+  gimbal1.rotation.y = t * 0.4;
+  gimbal2.rotation.y = 0.8 + Math.cos(t * 1.1) * 0.2;
+  gimbal2.rotation.z = t * 0.3;
+  fpGroup.rotation.z = t * 0.15;
+
+  // Ledger blocks hovering and flexing connections
+  ledgerGroup.position.y = -1.2 + Math.sin(t * 1.6 + 1.0) * 0.08;
+  blocks.forEach((b, idx) => {
+    b.position.y = (0.95 + idx * 0.28) + Math.sin(t * 2.0 + idx * 0.8) * 0.05;
+    b.rotation.y = (-0.45 + idx * 0.2) + Math.cos(t * 1.5 + idx) * 0.06;
+  });
+
+  // Access Platform float & subtle shimmer
+  ctaGroup.position.y = 0.85 + Math.sin(t * 1.8) * 0.05;
+  ctaGroup.rotation.x = mouse.y * 0.08;
+  ctaGroup.rotation.y = mouse.x * 0.12;
+
+  // Connecting laser pulse progression
+  const p1Frac = (t * 0.8) % 1.0;
+  pulse1.position.lerpVectors(
+    new THREE.Vector3(-4.5, -0.9, 0),
+    new THREE.Vector3(0, -0.5, 0.6),
+    p1Frac
+  );
+  pulse1.position.y += Math.sin(p1Frac * Math.PI) * 0.35;
+
+  const p2Frac = (t * 0.8 + 0.5) % 1.0;
+  pulse2.position.lerpVectors(
+    new THREE.Vector3(0, -0.5, 0.6),
+    new THREE.Vector3(4.5, -0.9, 0),
+    p2Frac
+  );
+  pulse2.position.y += Math.sin(p2Frac * Math.PI) * 0.35;
+
+  // Ambient dust particles slow drift
+  particles.rotation.y = t * 0.02;
+
+  renderer.render(scene, camera);
+}
+
+requestAnimationFrame(animate);
+
+})();
+</script>
+</div>
+<!-- STITCH_THREEJS_END:ANIMATION_16 -->
+<!-- Ambient radial gold illumination layer -->
+<div class="pointer-events-none absolute inset-0 ambient-radial-gold z-[1]"></div>
+<!-- END: Full 3D Interactive Three.js Scene Embedding -->
+<!-- Main Interactive UI Overlay Content (Top navigation completely removed) -->
+<div class="relative z-10 flex min-h-screen flex-col justify-between pointer-events-none">
+<!-- BEGIN: MainHeroSection -->
+<main class="relative flex flex-1 flex-col items-center justify-between px-4 pt-12 pb-6 sm:px-6 lg:px-8" data-purpose="hero-main-container">
+<!-- Centered Branding and Value Proposition -->
+<section class="mx-auto flex max-w-4xl flex-col items-center text-center mt-4" data-purpose="brand-hero-header">
+<!-- Cryptographic Monogram Protocol Badge -->
+<div class="stage-anim-badge mb-3.5 flex items-center justify-center" id="hero-badge">
+<div class="relative flex items-center space-x-2 rounded-full border border-gold-500/35 bg-[#120F0A]/80 px-4 py-1 text-[11px] font-mono tracking-widest text-gold-300 shadow-[0_0_20px_rgba(197,160,89,0.2)] backdrop-blur-md">
+<span class="inline-block h-1.5 w-1.5 animate-ping rounded-full bg-gold-400"></span>
+<span class="uppercase">CRYPTOGRAPHIC INTEGRITY PROTOCOL</span>
+</div>
+</div>
+<!-- 1. Brand Title: RAGSHIELD. in large serif typography, perfectly centered -->
+<h1 class="stage-anim-title font-serifBrand text-6xl font-black tracking-[0.24em] sm:text-7xl md:text-8xl lg:text-9xl text-gold-metallic select-none" id="hero-title">
+    RAGSHIELD.
+  </h1>
+<!-- 2. Tagline: Elegant italicized serif directly below it, perfectly centered -->
+<p class="stage-anim-tagline mt-2 font-serifTagline text-2xl sm:text-3xl md:text-4xl italic text-slate-300 tracking-wide font-normal" id="hero-tagline">
+    Trust the Source. <span class="font-semibold text-gold-subtle not-italic">Verify the Knowledge.</span>
+</p>
+<!-- 3. Subtitle / Value Proposition Description -->
+<p class="stage-anim-sub mt-4 max-w-2xl font-sans text-sm sm:text-base font-light tracking-wide text-slate-400 px-4" id="hero-sub">
+    A cryptographic framework for RAG knowledge base integrity and poisoning detection.
+  </p>
+<!-- 4. Interactive Floating 3D "ACCESS PLATFORM →" Presentation -->
+<div class="stage-anim-cta mt-8 pointer-events-auto" id="hero-cta">
+<a class="btn-3d-access group relative inline-flex items-center gap-3.5 overflow-hidden rounded-lg border border-gold-400/80 bg-gradient-to-b from-[#2E2413] via-[#1E170C] to-[#120D06] px-9 py-3.5 text-xs sm:text-sm font-semibold uppercase tracking-[0.22em] text-[#FFF6D6] backdrop-blur-md cursor-pointer select-none" data-purpose="primary-hero-cta" href="#platform" id="hidden-access-trigger">
+<!-- Metallic specular highlight facet -->
+<div class="pointer-events-none absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-gold-200 to-transparent"></div>
+<span class="relative z-10 font-mono font-bold tracking-[0.22em] text-gold-100 drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)]">ACCESS PLATFORM</span>
+<svg class="relative z-10 h-4 w-4 text-gold-300 transition-transform duration-300 group-hover:translate-x-1.5" fill="none" stroke="currentColor" stroke-width="2.4" viewbox="0 0 24 24">
+<path d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<!-- Shimmer light sweep -->
+<div class="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/15 to-transparent transition-transform duration-1000 group-hover:translate-x-full"></div>
+</a>
+</div>
+</section>
+<!-- Sleek Minimal Typographic Labels beneath corresponding 3D Object Node zones -->
+<!-- Precisely aligned with 3D Document Stack, SHA-256 Core, and Hash-Linked Ledger Blocks -->
+<section class="stage-anim-nodes relative mx-auto mb-4 w-full max-w-5xl pointer-events-auto" data-purpose="node-typographic-labels" id="hero-nodes">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 lg:gap-12 text-center">
+<!-- Node 1 Label: Document Stack Zone -->
+<div class="group flex flex-col items-center">
+<div class="w-full max-w-[220px] rounded-xl border border-gold-500/25 bg-[#0B0A0E]/85 px-4 py-3 backdrop-blur-md shadow-[0_8px_25px_rgba(0,0,0,0.6)] transition-all duration-300 hover:border-gold-400/60 hover:bg-[#141219]/90 hover:shadow-[0_0_20px_rgba(212,175,55,0.25)] hover:-translate-y-1">
+<div class="flex items-center justify-center gap-2">
+<svg class="h-3.5 w-3.5 text-gold-400" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="font-mono text-xs font-bold uppercase tracking-wider text-slate-200">DOCUMENT</span>
+</div>
+<div class="mt-0.5 font-sans text-[11px] text-slate-400">Upload &amp; Register</div>
+</div>
+</div>
+<!-- Node 2 Label: SHA-256 Fingerprint Zone -->
+<div class="group flex flex-col items-center">
+<div class="w-full max-w-[230px] rounded-xl border border-gold-400/50 bg-[#16120B]/90 px-4 py-3 backdrop-blur-md shadow-[0_8px_30px_rgba(0,0,0,0.7),0_0_20px_rgba(212,175,55,0.15)] transition-all duration-300 hover:border-gold-300 hover:bg-[#201A0E] hover:shadow-[0_0_25px_rgba(212,175,55,0.35)] hover:-translate-y-1">
+<div class="flex items-center justify-center gap-2">
+<svg class="h-3.5 w-3.5 text-gold-300" fill="none" stroke="currentColor" stroke-width="2.2" viewbox="0 0 24 24">
+<path d="M12 2v20M2 12h20M4.93 4.93l14.14 14.14M19.07 4.93L4.93 19.07"></path>
+</svg>
+<span class="font-mono text-xs font-bold uppercase tracking-wider text-gold-200">HASH GENERATION</span>
+</div>
+<div class="mt-0.5 font-sans text-[11px] text-slate-300">SHA-256 Fingerprint</div>
+</div>
+</div>
+<!-- Node 3 Label: Hash-Linked Ledger Zone -->
+<div class="group flex flex-col items-center">
+<div class="w-full max-w-[240px] rounded-xl border border-gold-500/25 bg-[#0B0A0E]/85 px-4 py-3 backdrop-blur-md shadow-[0_8px_25px_rgba(0,0,0,0.6)] transition-all duration-300 hover:border-gold-400/60 hover:bg-[#141219]/90 hover:shadow-[0_0_20px_rgba(212,175,55,0.25)] hover:-translate-y-1">
+<div class="flex items-center justify-center gap-2">
+<svg class="h-3.5 w-3.5 text-gold-400" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="font-mono text-xs font-bold uppercase tracking-wider text-slate-200">HASH-LINKED LEDGER</span>
+</div>
+<div class="mt-0.5 font-sans text-[11px] text-slate-400">Provenance &amp; Tamper Detection</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- END: MainHeroSection -->
+<!-- BEGIN: Bottom Cryptographic Telemetry Bar -->
+<footer class="relative w-full border-t border-gold-500/15 bg-black/85 backdrop-blur-md py-4 pointer-events-auto" data-purpose="ambient-telemetry-footer">
+<div class="relative z-10 mx-auto flex max-w-7xl flex-col items-center justify-between gap-3 px-6 text-xs text-slate-400 sm:flex-row sm:px-10 lg:px-12">
+<!-- Poison-Free Network Integrity Status -->
+<div class="flex items-center space-x-2.5 font-mono text-[11px] tracking-wide">
+<span class="inline-block h-2 w-2 rounded-full bg-emerald-500 shadow-[0_0_10px_#10B981]"></span>
+<span class="text-slate-300">NETWORK INTEGRITY: 100% POISON-FREE</span>
+</div>
+<!-- Cryptographic Architecture Indicators -->
+<div class="flex items-center space-x-6 font-mono text-[11px] tracking-widest text-slate-400">
+<span>SHA-256 SECURED</span>
+<span class="text-gold-500/40">•</span>
+<span>ETHEREAL CONSENSUS</span>
+<span class="text-gold-500/40">•</span>
+<span class="font-semibold text-gold-400">RAGSHIELD v2.4</span>
+</div>
+</div>
+</footer>
+<!-- END: Bottom Cryptographic Telemetry Bar -->
+</div>
+<!-- Sequential Cinematic Entrance Controller Script -->
+<script data-purpose="entrance-animation-sequence">
+  (function runCinematicSequence() {
+    const badge = document.getElementById('hero-badge');
+    const title = document.getElementById('hero-title');
+    const tagline = document.getElementById('hero-tagline');
+    const sub = document.getElementById('hero-sub');
+    const cta = document.getElementById('hero-cta');
+    const nodes = document.getElementById('hero-nodes');
+
+    // 1. Initial scene fade in: Badge & Title emerge
+    setTimeout(() => {
+      badge?.classList.add('stage-active');
+      title?.classList.add('stage-active');
+    }, 400);
+
+    // 2. Tagline & Subtitle reveal
+    setTimeout(() => {
+      tagline?.classList.add('stage-active');
+      sub?.classList.add('stage-active');
+    }, 1100);
+
+    // Listen for Three.js scene custom stage triggers if available
+    window.addEventListener('ragshield-stage', (e) => {
+      if (e.detail?.stage === 'cta') {
+        cta?.classList.add('stage-active');
+        nodes?.classList.add('stage-active');
+      }
+    });
+
+    // Fallback timer ensures elements activate smoothly in sync with 3D scene (T = 2.8s)
+    setTimeout(() => {
+      cta?.classList.add('stage-active');
+      nodes?.classList.add('stage-active');
+    }, 2800);
+  })();
+</script>
+</body></html>

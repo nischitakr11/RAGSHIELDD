@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&amp;family=Playfair+Display:ital,wght@0,600;0,700;1,600&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}
+/* Custom Animation Keyframes for Immersive Cryptographic Ledger */
+@keyframes floatSubtle1 { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-4px); } }
+@keyframes floatSubtle2 { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-6px); } }
+@keyframes floatSubtle3 { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-5px); } }
+@keyframes floatInspected { 0%, 100% { transform: translateY(-12px) scale(1.02); } 50% { transform: translateY(-17px) scale(1.025); } }
+@keyframes flowDash { to { stroke-dashoffset: -28; } }
+@keyframes pointerPulseBeam { 0% { transform: translateX(-100%); opacity: 0; } 50% { opacity: 1; } 100% { transform: translateX(200%); opacity: 0; } }
+@keyframes alertPulseGlow { 0%, 100% { box-shadow: 0 0 0 1px rgba(255,180,171,0.2), 0 8px 24px rgba(147,0,10,0.2); } 50% { box-shadow: 0 0 0 2px rgba(255,180,171,0.5), 0 8px 30px rgba(255,180,171,0.35); } }
+@keyframes activeBreathingGlow { 0%, 100% { box-shadow: 0 0 0 1px rgba(242,202,80,0.4), 0 12px 32px rgba(212,175,55,0.25); } 50% { box-shadow: 0 0 0 2px rgba(242,202,80,0.7), 0 16px 40px rgba(212,175,55,0.45); } }
+@keyframes radarSweep { 0% { opacity: 0.8; transform: scale(0.95); } 100% { opacity: 0; transform: scale(1.35); } }
+
+.anim-float-1 { animation: floatSubtle1 5.5s ease-in-out infinite; }
+.anim-float-2 { animation: floatSubtle2 6.8s ease-in-out infinite 0.7s; }
+.anim-float-3 { animation: floatSubtle3 6.2s ease-in-out infinite 1.4s; }
+.anim-inspected-float { animation: floatInspected 5s ease-in-out infinite; }
+.anim-alert-pulse { animation: alertPulseGlow 2.4s ease-in-out infinite; }
+.anim-active-glow { animation: activeBreathingGlow 3.5s ease-in-out infinite; }
+.flowing-dash-line { stroke-dasharray: 4 3; animation: flowDash 1s linear infinite; }
+.glow-audit-scan { box-shadow: 0 0 28px rgba(242,202,80,0.6) !important; border-color: rgba(242,202,80,0.9) !important; transition: all 0.4s ease; }
+</style><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "surface": "#131316",
+          "on-background": "#e4e1e6",
+          "on-secondary-fixed-variant": "#584411",
+          "outline": "#99907c",
+          "on-primary": "#3c2f00",
+          "surface-container-high": "#2a2a2d",
+          "error-container": "#93000a",
+          "secondary-fixed-dim": "#e1c384",
+          "on-secondary": "#3f2e00",
+          "on-tertiary-fixed": "#002204",
+          "error": "#ffb4ab",
+          "primary-container": "#d4af37",
+          "inverse-surface": "#e4e1e6",
+          "surface-container-low": "#1b1b1e",
+          "on-primary-container": "#554300",
+          "on-error-container": "#ffdad6",
+          "on-tertiary-fixed-variant": "#284f28",
+          "surface-bright": "#39393c",
+          "tertiary": "#acdaa6",
+          "surface-dim": "#131316",
+          "secondary-fixed": "#fedf9e",
+          "primary-fixed": "#ffe088",
+          "on-tertiary-container": "#264d26",
+          "outline-variant": "#4d4635",
+          "surface-variant": "#353438",
+          "inverse-primary": "#735c00",
+          "primary": "#f2ca50",
+          "surface-container-highest": "#353438",
+          "on-primary-fixed": "#241a00",
+          "surface-container-lowest": "#0e0e11",
+          "surface-tint": "#e9c349",
+          "background": "#131316",
+          "on-secondary-container": "#ceb275",
+          "tertiary-fixed": "#c0efb9",
+          "tertiary-fixed-dim": "#a5d29e",
+          "secondary-container": "#584411",
+          "tertiary-container": "#91be8c",
+          "on-tertiary": "#103813",
+          "inverse-on-surface": "#303033",
+          "on-surface-variant": "#d0c5af",
+          "on-primary-fixed-variant": "#574500",
+          "surface-container": "#1f1f22",
+          "on-surface": "#e4e1e6",
+          "on-secondary-fixed": "#251a00",
+          "on-error": "#690005",
+          "secondary": "#e1c384",
+          "primary-fixed-dim": "#e9c349"
+        },
+        "borderRadius": {
+          "DEFAULT": "0.25rem",
+          "lg": "0.5rem",
+          "xl": "0.75rem",
+          "full": "9999px"
+        },
+        "spacing": {
+          "gutter": "1.5rem",
+          "space-sm": "0.5rem",
+          "space-lg": "1.5rem",
+          "margin": "2rem",
+          "space-md": "1rem",
+          "space-xl": "2.5rem",
+          "space-xs": "0.25rem"
+        },
+        "fontFamily": {
+          "headline-lg": [
+            "Playfair Display"
+          ],
+          "label-caps": [
+            "JetBrains Mono"
+          ],
+          "mono-code": [
+            "JetBrains Mono"
+          ],
+          "display-hero": [
+            "Playfair Display"
+          ],
+          "body-lg": [
+            "Plus Jakarta Sans"
+          ],
+          "display-hero-mobile": [
+            "Playfair Display"
+          ],
+          "headline-sm": [
+            "Plus Jakarta Sans"
+          ],
+          "body-sm": [
+            "Plus Jakarta Sans"
+          ],
+          "body-md": [
+            "Plus Jakarta Sans"
+          ],
+          "headline-md": [
+            "Playfair Display"
+          ]
+        },
+        "fontSize": {
+          "headline-lg": [
+            "32px",
+            {
+              "lineHeight": "40px",
+              "letterSpacing": "0.01em",
+              "fontWeight": "600"
+            }
+          ],
+          "label-caps": [
+            "11px",
+            {
+              "lineHeight": "16px",
+              "letterSpacing": "0.1em",
+              "fontWeight": "600"
+            }
+          ],
+          "mono-code": [
+            "13px",
+            {
+              "lineHeight": "20px",
+              "letterSpacing": "0.02em",
+              "fontWeight": "500"
+            }
+          ],
+          "display-hero": [
+            "56px",
+            {
+              "lineHeight": "64px",
+              "letterSpacing": "0.04em",
+              "fontWeight": "700"
+            }
+          ],
+          "body-lg": [
+            "16px",
+            {
+              "lineHeight": "26px",
+              "fontWeight": "400"
+            }
+          ],
+          "display-hero-mobile": [
+            "36px",
+            {
+              "lineHeight": "44px",
+              "letterSpacing": "0.02em",
+              "fontWeight": "700"
+            }
+          ],
+          "headline-sm": [
+            "18px",
+            {
+              "lineHeight": "26px",
+              "fontWeight": "600"
+            }
+          ],
+          "body-sm": [
+            "12px",
+            {
+              "lineHeight": "18px",
+              "fontWeight": "400"
+            }
+          ],
+          "body-md": [
+            "14px",
+            {
+              "lineHeight": "22px",
+              "fontWeight": "400"
+            }
+          ],
+          "headline-md": [
+            "24px",
+            {
+              "lineHeight": "32px",
+              "fontWeight": "600"
+            }
+          ]
+        }
+      },
+    },
+  }</script></head><body class="bg-background font-body-md text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container relative overflow-x-hidden"><aside class="fixed left-0 top-0 h-full w-72 bg-surface-container-lowest z-50 flex flex-col justify-between p-space-md shadow-[4px_0_24px_rgba(0,0,0,0.6)] border-r border-outline-variant/30"><div class="flex flex-col gap-space-lg"><div class="px-space-sm pt-space-xs flex items-center justify-between"><a class="flex items-center gap-space-xs" data-path="dashboard" href="#"><span class="font-headline-md text-headline-md tracking-tight text-primary">RAGSHIELD<span class="text-secondary">.</span></span></a><span class="px-space-xs py-0.5 rounded bg-surface-container-high font-label-caps text-label-caps text-secondary-fixed-dim">SEC</span></div><div class="px-space-sm py-space-xs rounded-lg bg-surface-container-low flex flex-col gap-space-xs border border-outline-variant/20"><div class="flex items-center justify-between"><span class="font-label-caps text-label-caps text-outline uppercase">Chain Engine</span><span class="font-label-caps text-label-caps text-tertiary">C-LINKED-LIST</span></div><span class="font-mono-code text-mono-code text-on-surface truncate">OpenSSL EVP SHA-256</span></div><nav class="flex flex-col gap-1" data-active-classes="bg-primary-container text-on-primary-container font-semibold shadow-[0_0_16px_rgba(212,175,55,0.2)]"><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="dashboard" href="#"><span class="material-symbols-outlined text-[20px]">security</span><span class="font-body-md text-body-md">Dashboard</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="documents" href="#"><span class="material-symbols-outlined text-[20px]">folder_data</span><span class="font-body-md text-body-md">Documents</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="verification" href="#"><span class="material-symbols-outlined text-[20px]">verified_user</span><span class="font-body-md text-body-md">Verification</span></a><a aria-current="page" class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg transition-all bg-primary-container text-on-primary-container font-semibold shadow-[0_0_16px_rgba(212,175,55,0.2)]" data-path="ledger" href="#"><span class="material-symbols-outlined text-[20px]">receipt_long</span><span class="font-body-md text-body-md">Ledger</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="settings" href="#"><span class="material-symbols-outlined text-[20px]">settings_input_component</span><span class="font-body-md text-body-md">Settings</span></a></nav></div><div class="p-space-sm rounded-xl bg-surface-container-low flex flex-col gap-space-sm border border-outline-variant/30"><div class="flex items-center gap-space-sm"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center ring-2 ring-primary/30"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div><div class="flex flex-col min-w-0 flex-1"><span class="font-headline-sm text-body-md text-on-surface truncate">C. Vance (SecOps)</span><span class="font-mono-code text-body-sm text-on-surface-variant truncate">sig:0x4d91...a1e4</span></div></div><div class="pt-space-xs flex items-center justify-between text-on-surface-variant"><span class="font-label-caps text-label-caps">ROOT CLEARANCE</span><span class="material-symbols-outlined text-[16px] text-tertiary">lock</span></div></div></aside><div class="pl-72 min-h-screen flex flex-col relative z-10"><header class="fixed top-0 left-72 right-0 h-16 bg-surface-container-lowest/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.3)] z-40 flex items-center justify-between px-space-lg border-b border-outline-variant/20"><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs px-space-sm py-1 rounded-full bg-surface-container-high border border-outline-variant/20"><span class="w-2 h-2 rounded-full bg-tertiary animate-pulse shadow-[0_0_8px_#acdaa6]"></span><span class="font-label-caps text-label-caps text-tertiary tracking-wider">LOCAL HASH CHAIN ACTIVE</span></div><div class="hidden xl:flex items-center gap-space-xs px-space-sm py-1 rounded bg-surface-container-low border border-outline-variant/30"><span class="font-label-caps text-label-caps text-outline">HEAD HASH</span><span class="font-mono-code text-mono-code text-secondary">e3b0c442...98fc</span></div></div><div class="flex items-center gap-space-md"><div class="relative flex items-center"><span class="material-symbols-outlined absolute left-3 text-on-surface-variant text-[18px]">search</span><input class="w-64 pl-9 pr-space-md py-1.5 rounded-lg bg-surface-container-lowest text-on-surface placeholder:text-outline font-mono-code text-mono-code outline-none focus:ring-1 focus:ring-primary focus:bg-surface-container-low transition-all border border-outline-variant/30" placeholder="Filter by Block ID (#42107)..." type="text"/></div><button class="p-2 rounded-lg bg-surface-container-low text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors relative border border-outline-variant/30"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-1.5 right-1.5 w-1.5 h-1.5 rounded-full bg-primary ring-2 ring-surface"></span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center ring-2 ring-primary/40"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></header><main class="w-full pt-16 bg-background flex-1 relative"><div class="flex flex-col w-full relative">
+<!-- Canvas Layer: Ambient Floating Cryptographic Hash Particles & Luminous Bubbles -->
+<canvas class="fixed inset-0 pointer-events-none z-0 pl-72" id="ambientCryptoCanvas"></canvas>
+<!-- Dynamic Ambient Backing Glow & Vignette -->
+<div class="relative px-space-lg py-space-xl flex flex-col gap-space-xl max-w-7xl mx-auto w-full z-10"><div class="absolute -top-12 left-1/3 w-96 h-96 bg-primary/10 rounded-full blur-[140px] pointer-events-none"></div><div class="absolute top-1/2 right-10 w-80 h-80 bg-secondary/10 rounded-full blur-[120px] pointer-events-none"></div><!-- 1. Header & Actions --><div class="flex flex-col lg:flex-row items-start lg:items-end justify-between gap-space-lg relative z-10"><div class="flex flex-col gap-space-xs max-w-2xl"><div class="flex items-center gap-space-xs"><span class="px-space-xs py-0.5 rounded bg-surface-container-high text-primary font-label-caps text-label-caps uppercase tracking-widest flex items-center gap-1.5 shadow-sm border border-primary/20"><span class="w-1.5 h-1.5 rounded-full bg-primary animate-ping"></span>CRYPTOGRAPHIC AUDIT LEDGER</span><span class="font-mono-code text-body-sm text-outline">• Singly Linked-List Data Structure (C Backend)</span></div><h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Hash-Linked Audit Ledger</h1><p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">Chronological pointer-based hash chain tracking document registration and verification events. Local high-assurance audit ledger computed via OpenSSL SHA-256.</p></div><div class="flex items-center gap-space-sm flex-wrap"><button class="px-space-md py-2 rounded-lg bg-surface-container-high hover:bg-surface-bright text-secondary font-mono-code text-mono-code transition-all flex items-center gap-space-xs shadow-md border border-outline-variant/30 hover:border-primary/40 active:scale-95" id="validateLedgerBtn"><span class="material-symbols-outlined text-[18px]">link</span>Validate Ledger</button><button class="px-space-md py-2 rounded-lg bg-primary-container hover:bg-primary text-on-primary-container font-headline-sm text-body-md shadow-lg shadow-primary-container/20 transition-all flex items-center gap-space-xs active:scale-95" id="exportTrailBtn"><span class="material-symbols-outlined text-[18px]">download</span>Export Audit Trail</button></div></div><!-- 2. Metrics Overview (4 Key Metrics with subtle hover 3D tilt & gentle floats) --><div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-md"><div class="tilt-card p-space-md rounded-xl bg-surface-container-low backdrop-blur-md shadow-xl flex flex-col justify-between relative overflow-hidden group border border-outline-variant/30 anim-float-1"><div class="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-bl-full pointer-events-none group-hover:scale-110 transition-transform"></div><div class="flex items-center justify-between text-outline"><span class="font-label-caps text-label-caps uppercase tracking-wider">TOTAL LEDGER ENTRIES</span><span class="material-symbols-outlined text-[20px] text-primary group-hover:rotate-12 transition-transform">receipt_long</span></div><div class="mt-space-md flex items-baseline gap-space-xs"><span class="font-headline-md text-headline-md text-on-surface font-semibold tracking-tight">42,109</span><span class="font-mono-code text-body-sm text-tertiary font-medium">+28 today</span></div><div class="mt-space-xs flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span><span class="font-mono-code text-body-sm text-on-surface-variant truncate">Sequential blocks chained</span></div></div><div class="tilt-card p-space-md rounded-xl bg-surface-container-low backdrop-blur-md shadow-xl flex flex-col justify-between relative overflow-hidden group border border-outline-variant/30 anim-float-2"><div class="absolute top-0 right-0 w-24 h-24 bg-tertiary/10 rounded-bl-full pointer-events-none group-hover:scale-110 transition-transform"></div><div class="flex items-center justify-between text-outline"><span class="font-label-caps text-label-caps uppercase tracking-wider">CHAIN VALIDATION STATUS</span><span class="material-symbols-outlined text-[20px] text-tertiary group-hover:scale-110 transition-transform">verified</span></div><div class="mt-space-md flex items-baseline gap-space-xs"><span class="font-headline-md text-headline-md text-tertiary font-semibold tracking-tight">VALID</span><span class="font-label-caps text-label-caps text-outline uppercase">100% Consistent</span></div><div class="mt-space-xs flex items-center gap-space-xs"><div class="w-full bg-surface-container-highest rounded-full h-1 overflow-hidden"><div class="bg-tertiary h-full rounded-full w-full shadow-[0_0_8px_#acdaa6]"></div></div><span class="font-mono-code text-body-sm text-tertiary">PASS</span></div></div><div class="tilt-card p-space-md rounded-xl bg-surface-container-low backdrop-blur-md shadow-xl flex flex-col justify-between relative overflow-hidden group border border-outline-variant/30 anim-float-3"><div class="absolute top-0 right-0 w-24 h-24 bg-secondary/5 rounded-bl-full pointer-events-none group-hover:scale-110 transition-transform"></div><div class="flex items-center justify-between text-outline"><span class="font-label-caps text-label-caps uppercase tracking-wider">LATEST BLOCK INDEX</span><span class="material-symbols-outlined text-[20px] text-secondary group-hover:scale-110 transition-transform">tag</span></div><div class="mt-space-md flex flex-col"><span class="font-headline-md text-headline-md text-on-surface truncate font-semibold tracking-tight">#42,109</span><span class="font-mono-code text-body-sm text-secondary-fixed-dim">Current Head Node</span></div><div class="mt-space-xs flex items-center justify-between text-on-surface-variant font-mono-code text-body-sm"><span>Memory pointer</span><span class="text-tertiary">0x7ffd...c090</span></div></div><div class="tilt-card p-space-md rounded-xl bg-surface-container-low backdrop-blur-md shadow-xl flex flex-col justify-between relative overflow-hidden group border border-outline-variant/30 anim-float-1"><div class="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-bl-full pointer-events-none group-hover:scale-110 transition-transform"></div><div class="flex items-center justify-between text-outline"><span class="font-label-caps text-label-caps uppercase tracking-wider">LATEST BLOCK HASH</span><span class="material-symbols-outlined text-[20px] text-primary group-hover:scale-110 transition-transform">fingerprint</span></div><div class="mt-space-md flex items-baseline gap-space-xs"><span class="font-headline-md text-headline-md text-primary font-semibold tracking-tight font-mono-code">e3b0c442...</span></div><div class="mt-space-xs flex items-center justify-between font-mono-code text-body-sm"><span class="text-on-surface-variant">Digest Algorithm</span><span class="text-secondary font-medium">OpenSSL SHA-256</span></div></div></div><!-- 3. Search & Filter Toolbar --><div class="p-space-sm rounded-xl bg-surface-container-low backdrop-blur-md shadow-lg flex flex-col md:flex-row items-stretch md:items-center justify-between gap-space-md border border-outline-variant/30"><div class="flex-1 flex items-center gap-space-xs bg-surface-container-lowest px-space-md py-2 rounded-lg border border-outline-variant/30 focus-within:border-primary/50 transition-colors"><span class="material-symbols-outlined text-outline text-[20px]">search</span><input class="w-full bg-transparent text-on-surface placeholder:text-outline font-mono-code text-mono-code outline-none focus:placeholder-transparent" id="blockSearchInput" placeholder="Filter by Block ID (#42107) or Document Name..." type="text"/><span class="font-label-caps text-label-caps text-outline px-1.5 py-0.5 rounded bg-surface-container-high hidden sm:inline">ESC TO CLEAR</span></div><div class="flex items-center gap-space-xs overflow-x-auto pb-1 md:pb-0" id="filterPillsContainer"><button class="filter-pill active px-space-sm py-1.5 rounded-lg font-label-caps text-label-caps tracking-wider transition-all whitespace-nowrap bg-primary-container text-on-primary-container font-semibold shadow-sm">ALL BLOCKS (42,109)</button><button class="filter-pill px-space-sm py-1.5 rounded-lg font-label-caps text-label-caps tracking-wider transition-all whitespace-nowrap text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface">REGISTRATION EVENTS</button><button class="filter-pill px-space-sm py-1.5 rounded-lg font-label-caps text-label-caps tracking-wider transition-all whitespace-nowrap text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface">VERIFICATION CHECKS</button><button class="filter-pill px-space-sm py-1.5 rounded-lg font-label-caps text-label-caps tracking-wider transition-all whitespace-nowrap text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface">FLAGGED MODIFICATIONS (3)</button></div></div><!-- 4. Sequential Hash-Linked Pipeline Visualizer --><div class="flex flex-col gap-space-sm"><div class="flex items-center justify-between"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-primary text-[20px]">linear_scale</span><span class="font-headline-sm text-headline-sm text-on-surface">Sequential Pointer Hash Chain</span><span class="font-mono-code text-body-sm text-secondary px-2 py-0.5 rounded bg-surface-container-high border border-outline-variant/30">struct ledger_node *prev</span></div><div class="flex items-center gap-space-xs text-on-surface-variant font-mono-code text-body-sm"><span class="w-2 h-2 rounded-full bg-primary animate-pulse shadow-[0_0_6px_#f2ca50]"></span><span>AUTOSCROLL LOCKED (HEAD #42,109)</span></div></div><div class="relative w-full rounded-2xl bg-surface-container-lowest p-space-lg overflow-x-auto shadow-2xl flex items-center justify-between min-h-[350px] border border-outline-variant/40"><div class="flex items-center gap-space-md relative z-10 mx-auto min-w-[1080px] justify-between px-space-md py-4" id="chainPipelineContainer"><!-- Block 42,106 --><div class="block-card cursor-pointer transform hover:-translate-y-2 transition-all duration-300 w-60 rounded-xl bg-surface-container-low shadow-xl p-space-md flex flex-col gap-space-xs relative group border border-outline-variant/30 hover:border-outline" data-block-id="42106"><div class="flex items-center justify-between"><span class="font-mono-code text-body-sm text-outline">BLOCK</span><span class="font-headline-sm text-body-md text-on-surface font-bold">#42,106</span></div><div class="py-1 px-2 rounded bg-surface-container text-tertiary font-label-caps text-label-caps uppercase flex items-center gap-1 border border-tertiary/20"><span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse"></span>REGISTRATION</div><div class="font-mono-code text-body-sm text-on-surface font-medium truncate mt-1">security_policy_v2.pdf</div><div class="mt-2 pt-2 bg-surface-container-lowest/60 rounded p-1.5 flex flex-col gap-1 font-mono-code text-[10px] border border-outline-variant/20"><span class="text-primary truncate">H: 9b2d14f2...102e</span><span class="text-outline truncate">P: 4f12ac08...8811</span></div><div class="mt-2 flex items-center justify-between text-[10px] text-outline font-mono-code"><span>malloc 128B</span><span>13:58:04 UTC</span></div></div><!-- Dynamic Pointer Connector 1 with Flowing Particles & Glowing Line --><div class="pointer-connector flex flex-col items-center justify-center font-mono-code text-[9px] text-secondary relative px-2 py-1"><span class="text-outline text-[10px] font-mono-code">prev_hash</span><div class="relative w-16 h-6 flex items-center justify-center my-0.5"><svg class="w-full h-4 overflow-visible" viewbox="0 0 64 16"><path class="stroke-outline-variant" d="M 0 8 L 56 8" fill="none" stroke-width="2"></path><path class="flowing-dash-line stroke-primary" d="M 0 8 L 56 8" fill="none" stroke-width="2"></path><path d="M 52 4 L 60 8 L 52 12" fill="none" stroke="#f2ca50" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path><circle class="filter drop-shadow" cx="30" cy="8" fill="#f2ca50" r="2.5"><animate attributename="cx" dur="1.8s" repeatcount="indefinite" values="2;56"></animate><animate attributename="opacity" dur="1.8s" repeatcount="indefinite" values="0.1;1;0.2"></animate></circle></svg></div><span class="text-[8px] text-tertiary font-bold tracking-wider">MATCHED</span></div><!-- Block 42,107 (Target Selected / Inspected with Ambient Pulse & Breathing Radar) --><div class="block-card active-block anim-inspected-float cursor-pointer transition-all duration-300 w-64 rounded-xl bg-surface-container-high shadow-2xl p-space-md flex flex-col gap-space-xs relative anim-active-glow border border-primary/60" data-block-id="42107"><div class="absolute -top-3 right-4 px-2.5 py-0.5 rounded-full bg-primary text-on-primary font-label-caps text-label-caps font-bold tracking-widest shadow-lg shadow-primary/30 flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-on-primary animate-ping"></span>INSPECTING</div><div class="flex items-center justify-between"><span class="font-mono-code text-body-sm text-secondary">INSPECTED BLOCK</span><span class="font-headline-sm text-headline-sm text-primary font-bold">#42,107</span></div><div class="py-1 px-2 rounded bg-surface-container text-secondary font-label-caps text-label-caps uppercase flex items-center gap-1 font-semibold border border-secondary/30"><span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>REGISTRATION</div><div class="font-mono-code text-body-sm text-on-surface font-semibold truncate mt-1">customer_support_kb_v9.json</div><div class="mt-2 pt-2 bg-surface-container-lowest rounded p-2 flex flex-col gap-1 font-mono-code text-[11px] border border-outline-variant/40"><span class="text-primary truncate">H: 1f8e2a3b...0e1f</span><span class="text-secondary truncate">P: 9b2d14f2...102e</span></div><div class="mt-2 flex items-center justify-between text-on-surface-variant font-mono-code text-[10px]"><span class="text-tertiary font-bold flex items-center gap-0.5"><span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>POINTER OK</span><span>14:02:19 UTC</span></div></div><!-- Dynamic Pointer Connector 2 --><div class="pointer-connector flex flex-col items-center justify-center font-mono-code text-[9px] text-secondary relative px-2 py-1"><span class="text-outline text-[10px] font-mono-code">prev_hash</span><div class="relative w-16 h-6 flex items-center justify-center my-0.5"><svg class="w-full h-4 overflow-visible" viewbox="0 0 64 16"><path class="stroke-outline-variant" d="M 0 8 L 56 8" fill="none" stroke-width="2"></path><path class="flowing-dash-line stroke-primary" d="M 0 8 L 56 8" fill="none" stroke-width="2"></path><path d="M 52 4 L 60 8 L 52 12" fill="none" stroke="#f2ca50" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path><circle class="filter drop-shadow" cx="30" cy="8" fill="#f2ca50" r="2.5"><animate attributename="cx" dur="1.8s" repeatcount="indefinite" values="2;56"></animate><animate attributename="opacity" dur="1.8s" repeatcount="indefinite" values="0.1;1;0.2"></animate></circle></svg></div><span class="text-[8px] text-tertiary font-bold tracking-wider">MATCHED</span></div><!-- Block 42,108 (Alert Modification with Red Pulse Glow) --><div class="block-card anim-alert-pulse cursor-pointer transform hover:-translate-y-2 transition-all duration-300 w-60 rounded-xl bg-surface-container-low shadow-xl p-space-md flex flex-col gap-space-xs relative group border border-error/40 hover:border-error" data-block-id="42108"><div class="flex items-center justify-between"><span class="font-mono-code text-body-sm text-outline">BLOCK</span><span class="font-headline-sm text-body-md text-on-surface font-bold">#42,108</span></div><div class="py-1 px-2 rounded bg-error-container text-on-error-container font-label-caps text-label-caps uppercase flex items-center gap-1 border border-error/30"><span class="w-1.5 h-1.5 rounded-full bg-error animate-ping"></span>MODIFICATION ALERT</div><div class="font-mono-code text-body-sm text-error font-medium truncate mt-1">kb_article_7029.md</div><div class="mt-2 pt-2 bg-surface-container-lowest/60 rounded p-1.5 flex flex-col gap-1 font-mono-code text-[10px] border border-outline-variant/20"><span class="text-error truncate">H: 7c4e5a2d...338c</span><span class="text-secondary truncate">P: 1f8e2a3b...0e1f</span></div><div class="mt-2 flex items-center justify-between text-[10px] text-outline font-mono-code"><span>DIFF: +3 lines</span><span>14:15:33 UTC</span></div></div><!-- Dynamic Pointer Connector 3 --><div class="pointer-connector flex flex-col items-center justify-center font-mono-code text-[9px] text-primary relative px-2 py-1"><span class="text-outline text-[10px] font-mono-code">prev_hash</span><div class="relative w-16 h-6 flex items-center justify-center my-0.5"><svg class="w-full h-4 overflow-visible" viewbox="0 0 64 16"><path class="stroke-outline-variant" d="M 0 8 L 56 8" fill="none" stroke-width="2"></path><path class="flowing-dash-line stroke-primary" d="M 0 8 L 56 8" fill="none" stroke-width="2"></path><path d="M 52 4 L 60 8 L 52 12" fill="none" stroke="#f2ca50" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path><circle class="filter drop-shadow" cx="24" cy="8" fill="#ffe088" r="3"><animate attributename="cx" dur="1.2s" repeatcount="indefinite" values="2;56"></animate><animate attributename="opacity" dur="1.2s" repeatcount="indefinite" values="0.2;1;0.1"></animate></circle></svg></div><span class="font-bold text-[9px] text-primary tracking-wider flex items-center gap-0.5"><span class="w-1 h-1 rounded-full bg-primary animate-ping"></span>CHAIN HEAD</span></div><!-- Block 42,109 (Head with Beacon Pulse) --><div class="block-card cursor-pointer transform hover:-translate-y-2 transition-all duration-300 w-60 rounded-xl bg-surface-container-low shadow-xl p-space-md flex flex-col gap-space-xs relative group border border-outline-variant/30 hover:border-primary/50" data-block-id="42109"><div class="flex items-center justify-between"><div class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-primary animate-pulse shadow-[0_0_8px_#f2ca50]"></span><span class="font-mono-code text-body-sm text-outline">HEAD NODE</span></div><span class="font-headline-sm text-body-md text-on-surface font-bold">#42,109</span></div><div class="py-1 px-2 rounded bg-surface-container text-primary font-label-caps text-label-caps uppercase flex items-center gap-1 border border-primary/20"><span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>VERIFICATION</div><div class="font-mono-code text-body-sm text-on-surface font-medium truncate mt-1">finance_terms_2026.docx</div><div class="mt-2 pt-2 bg-surface-container-lowest/60 rounded p-1.5 flex flex-col gap-1 font-mono-code text-[10px] border border-outline-variant/20"><span class="text-primary truncate">H: e3b0c442...98fc</span><span class="text-secondary truncate">P: 7c4e5a2d...338c</span></div><div class="mt-2 flex items-center justify-between text-[10px] text-outline font-mono-code"><span>SEALED</span><span>14:28:44 UTC</span></div></div></div></div></div><!-- 5. Bottom Panels: Left (Inspection) & Right (Validation Engine) --><div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-start"><!-- Left Panel: Block Inspection (8 Cols) --><div class="lg:col-span-8 p-space-lg rounded-2xl bg-surface-container-low shadow-xl flex flex-col gap-space-md border border-outline-variant/30"><div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-space-sm pb-space-sm bg-surface-container-lowest/50 p-space-sm rounded-xl border border-outline-variant/20"><div class="flex items-center gap-space-sm"><div class="w-10 h-10 rounded-lg bg-primary-container/20 flex items-center justify-center text-primary border border-primary/30 shadow-inner"><span class="material-symbols-outlined text-[24px]">data_object</span></div><div class="flex flex-col"><div class="flex items-center gap-space-xs"><span class="font-headline-sm text-headline-sm text-on-surface" id="specBlockTitle">Block Specification #42,107</span><span class="px-2 py-0.5 rounded bg-tertiary text-on-tertiary font-label-caps text-label-caps font-semibold" id="specBlockBadge">CHAIN LINK INTACT</span></div><span class="font-mono-code text-body-sm text-outline" id="specTargetFile">Target File: customer_support_kb_v9.json (ID: DOC-7029)</span></div></div><div class="flex items-center gap-space-xs self-end sm:self-center"><span class="font-mono-code text-body-sm text-secondary" id="specIndexCount">Index: 42,107 of 42,109</span></div></div><!-- Metadata Grid --><div class="grid grid-cols-1 md:grid-cols-2 gap-space-md"><div class="p-space-sm rounded-lg bg-surface-container flex flex-col gap-1 border border-outline-variant/20"><span class="font-label-caps text-label-caps text-outline uppercase">DOCUMENT IDENTIFIER</span><div class="flex items-center gap-space-xs text-primary font-mono-code text-body-md truncate" id="specDocId"><span class="material-symbols-outlined text-[18px] text-primary">description</span><span class="truncate">customer_support_kb_v9.json (ID: DOC-7029)</span></div></div><div class="p-space-sm rounded-lg bg-surface-container flex flex-col gap-1 border border-outline-variant/20"><span class="font-label-caps text-label-caps text-outline uppercase">FILE SIZE</span><div class="flex items-center gap-space-xs text-on-surface font-mono-code text-body-md"><span class="material-symbols-outlined text-[18px] text-secondary">storage</span><span id="specFileSize">428.1 KB (438,412 bytes)</span></div></div><div class="p-space-sm rounded-lg bg-surface-container flex flex-col gap-1 border border-outline-variant/20"><span class="font-label-caps text-label-caps text-outline uppercase">EVENT / INGESTION TYPE</span><div class="flex items-center gap-space-xs text-on-surface font-mono-code text-body-md"><span class="material-symbols-outlined text-[18px] text-secondary">memory</span><span id="specEventType">Document Registration (C Buffer malloc)</span></div></div><div class="p-space-sm rounded-lg bg-surface-container flex flex-col gap-1 border border-outline-variant/20"><span class="font-label-caps text-label-caps text-outline uppercase">COMMIT TIMESTAMP</span><div class="flex items-center gap-space-xs text-on-surface font-mono-code text-body-md"><span class="material-symbols-outlined text-[18px] text-secondary">schedule</span><span id="specTimestamp">November 17, 2026 • 14:02:19.412 UTC</span></div></div><!-- Current Block SHA-256 --><div class="md:col-span-2 p-space-sm rounded-lg bg-surface-container flex flex-col gap-1 border border-outline-variant/20"><div class="flex items-center justify-between"><span class="font-label-caps text-label-caps text-outline uppercase">CURRENT BLOCK SHA-256</span><button class="text-secondary hover:text-primary transition-colors flex items-center gap-1 font-mono-code text-body-sm" id="copyHashBtn" onclick="navigator.clipboard.writeText(document.getElementById('currentBlockHashElem').innerText); showToast('SHA-256 Hash copied to clipboard', 'content_copy', 'text-secondary');"><span class="material-symbols-outlined text-[16px]">content_copy</span> Copy Hash</button></div><div class="p-space-xs rounded bg-surface-container-lowest font-mono-code text-mono-code text-primary break-all select-all border border-outline-variant/30" id="currentBlockHashElem">1f8e2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7b8c9d0e1f</div></div><!-- Previous Block Pointer --><div class="md:col-span-2 p-space-sm rounded-lg bg-surface-container flex flex-col gap-1 border border-outline-variant/20"><div class="flex items-center justify-between"><span class="font-label-caps text-label-caps text-outline uppercase">PREVIOUS BLOCK POINTER (prev_hash)</span><span class="font-mono-code text-body-sm text-tertiary" id="specPrevStatus">MATCHED — equals Block #42,106 current hash</span></div><div class="p-space-xs rounded bg-surface-container-lowest font-mono-code text-mono-code text-secondary break-all select-all border border-outline-variant/30" id="specPrevHashElem">9b2d14f27c88102e3b4a5f6c7d8e9a0b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f</div><div class="mt-1 flex items-center gap-space-xs text-[11px] font-mono-code text-on-surface-variant"><span class="material-symbols-outlined text-[14px] text-tertiary">check_circle</span><span>Pointer Continuity Status: Verified 32-byte cryptographic reference to predecessor node</span></div></div></div><!-- Document Event Log in this Block --><div class="flex flex-col gap-space-xs mt-space-sm"><div class="flex items-center justify-between"><span class="font-headline-sm text-body-md text-on-surface">Ledger Entry Chronological Audit Log (4)</span><span class="font-mono-code text-body-sm text-outline">Trace: node-&gt;events[0..3]</span></div><div class="flex flex-col gap-space-xs"><div class="p-space-sm rounded-lg bg-surface-container hover:bg-surface-bright transition-colors flex items-center justify-between gap-space-sm border border-outline-variant/20"><div class="flex items-center gap-space-sm min-w-0"><span class="w-7 h-7 rounded-full bg-primary/20 flex items-center justify-center text-primary"><span class="material-symbols-outlined text-[16px]">file_open</span></span><div class="flex flex-col min-w-0"><span class="font-headline-sm text-body-md text-on-surface truncate">EVT-01: Document Buffer Read</span><span class="font-mono-code text-body-sm text-outline truncate">428.1 KB ingested via C file stream (fopen/fread)</span></div></div><span class="font-mono-code text-body-sm text-tertiary px-2 py-0.5 rounded bg-surface-container-high whitespace-nowrap">SUCCESS</span></div><div class="p-space-sm rounded-lg bg-surface-container hover:bg-surface-bright transition-colors flex items-center justify-between gap-space-sm border border-outline-variant/20"><div class="flex items-center gap-space-sm min-w-0"><span class="w-7 h-7 rounded-full bg-secondary/20 flex items-center justify-center text-secondary"><span class="material-symbols-outlined text-[16px]">lock_reset</span></span><div class="flex flex-col min-w-0"><span class="font-headline-sm text-body-md text-on-surface truncate">EVT-02: OpenSSL EVP SHA-256 Computation</span><span class="font-mono-code text-body-sm text-outline truncate">Digest 1f8e2a... generated in 0.12ms</span></div></div><span class="font-mono-code text-body-sm text-tertiary px-2 py-0.5 rounded bg-surface-container-high whitespace-nowrap">COMPUTED</span></div><div class="p-space-sm rounded-lg bg-surface-container hover:bg-surface-bright transition-colors flex items-center justify-between gap-space-sm border border-outline-variant/20"><div class="flex items-center gap-space-sm min-w-0"><span class="w-7 h-7 rounded-full bg-tertiary/20 flex items-center justify-center text-tertiary"><span class="material-symbols-outlined text-[16px]">device_hub</span></span><div class="flex flex-col min-w-0"><span class="font-headline-sm text-body-md text-on-surface truncate">EVT-03: Linked-List Node Allocation</span><span class="font-mono-code text-body-sm text-outline truncate">sizeof(ledger_node_t) chained to prev pointer at 0x7ffd...c090</span></div></div><span class="font-mono-code text-body-sm text-tertiary px-2 py-0.5 rounded bg-surface-container-high whitespace-nowrap">COMMITTED TO MEMORY</span></div><div class="p-space-sm rounded-lg bg-surface-container hover:bg-surface-bright transition-colors flex items-center justify-between gap-space-sm border border-outline-variant/20"><div class="flex items-center gap-space-sm min-w-0"><span class="w-7 h-7 rounded-full bg-error-container/30 flex items-center justify-center text-error"><span class="material-symbols-outlined text-[16px]">warning</span></span><div class="flex flex-col min-w-0"><span class="font-headline-sm text-body-md text-on-surface truncate">EVT-04: Subsequent Integrity Verification (Nov 17, 14:15 UTC)</span><span class="font-mono-code text-body-sm text-outline truncate">Hash mismatch detected in subsequent block #42,108</span></div></div><span class="font-mono-code text-body-sm text-error px-2 py-0.5 rounded bg-surface-container-high whitespace-nowrap">MISMATCH DETECTED</span></div></div></div></div><!-- Right Panel: Sequential Pointer Validation Engine (4 Cols) --><div class="lg:col-span-4 flex flex-col gap-space-md"><div class="p-space-lg rounded-2xl bg-surface-container-low shadow-xl flex flex-col gap-space-md relative overflow-hidden border border-outline-variant/30"><div class="flex items-center justify-between"><span class="font-label-caps text-label-caps text-primary uppercase tracking-wider">VALIDATION ENGINE</span><span class="material-symbols-outlined text-primary text-[20px]">account_tree</span></div><div class="flex flex-col gap-1"><h2 class="font-headline-sm text-headline-sm text-on-surface">Sequential Pointer Validation</h2><p class="font-body-md text-body-md text-on-surface-variant leading-snug">Traverse singly linked list nodes from Head to Genesis, verifying node[i]-&gt;prev_hash matches node[i-1]-&gt;curr_hash.</p></div><!-- Validation Status Display Box --><div class="p-space-md rounded-xl bg-surface-container-lowest flex flex-col gap-space-sm border border-outline-variant/30"><div class="w-full p-space-sm rounded-lg bg-surface-container flex items-center justify-between text-tertiary font-mono-code text-body-sm transition-all border border-outline-variant/20" id="validationResultBox"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[20px] text-tertiary">verified</span><span class="font-bold">CHAIN VALID</span></div><span class="text-[11px] text-tertiary">42,109 Nodes Continuous</span></div><div class="grid grid-cols-2 gap-space-xs text-[11px] font-mono-code"><div class="p-2 rounded bg-surface-container flex flex-col border border-outline-variant/20"><span class="text-outline">Pointer Consistency</span><span class="text-tertiary font-bold text-[13px]" id="pointerConsistencyVal">100% MATCH</span></div><div class="p-2 rounded bg-surface-container flex flex-col border border-outline-variant/20"><span class="text-outline">Broken Pointers</span><span class="text-tertiary font-bold text-[13px]">0 Detected</span></div></div><div class="flex items-center justify-between text-[10px] font-mono-code text-outline"><span id="lastScanTime">Last Scan: 12 seconds ago</span><span>Full Traversal</span></div></div><div class="flex flex-col gap-space-xs"><button class="w-full py-2.5 rounded-lg bg-surface-container-high hover:bg-surface-bright text-primary font-headline-sm text-body-md transition-all flex items-center justify-center gap-space-xs shadow-md border border-primary/30 hover:border-primary active:scale-95" id="runAuditBtn"><span class="material-symbols-outlined text-[18px]">play_arrow</span>Run Sequential Pointer Audit</button></div></div><!-- C Architecture Node Struct Specification --><div class="p-space-md rounded-2xl bg-surface-container-low shadow-xl flex flex-col gap-space-xs border border-outline-variant/30"><div class="flex items-center justify-between text-outline"><span class="font-label-caps text-label-caps uppercase">C ARCHITECTURE SPECIFICATION</span><span class="font-mono-code text-[11px] text-secondary">ledger_node.h</span></div><p class="font-body-sm text-body-sm text-on-surface-variant">Singly linked-list node definition with OpenSSL 32-byte digests and reverse pointer:</p><div class="mt-1 p-space-xs rounded bg-surface-container-lowest font-mono-code text-[10px] text-secondary leading-relaxed overflow-x-auto select-all border border-outline-variant/30"><pre>typedef struct ledger_node {
+    uint32_t index;
+    uint8_t  curr_hash[32];
+    uint8_t  prev_hash[32];
+    char     doc_id[64];
+    uint64_t timestamp;
+    struct ledger_node *prev;
+} ledger_node_t;</pre></div></div></div></div></div>
+<!-- Notification Toast Container -->
+<div class="fixed bottom-6 right-6 z-50 transform translate-y-24 opacity-0 transition-all duration-300 pointer-events-none p-space-md rounded-xl bg-surface-container-high shadow-2xl flex items-center gap-space-sm text-on-surface font-mono-code text-body-md border border-outline-variant/40" id="ledgerToast">
+<span class="material-symbols-outlined text-primary text-[22px]" id="toastIcon">info</span>
+<span id="toastMessage">Ledger synced.</span>
+</div>
+<script>
+    (function initLedger() {
+      // 1. Ambient Floating Cryptographic Hash Particles & Bubbles Canvas
+      const canvas = document.getElementById('ambientCryptoCanvas');
+      if (canvas) {
+        const ctx = canvas.getContext('2d');
+        let width = canvas.width = window.innerWidth - 288;
+        let height = canvas.height = window.innerHeight;
+
+        window.addEventListener('resize', () => {
+          width = canvas.width = window.innerWidth - (window.innerWidth >= 1024 ? 288 : 0);
+          height = canvas.height = window.innerHeight;
+        });
+
+        const fragments = ['0x7ffd', 'SHA-256', 'e3b0c4', 'prev_hash', '1f8e2a', '0xFD4', '0101', 'b4c5d6', 'malloc', '0x9b2d', 'evp_md', '0x4d91', 'node->prev'];
+        const particles = [];
+        const particleCount = 28;
+
+        for (let i = 0; i < particleCount; i++) {
+          particles.push({
+            x: Math.random() * width,
+            y: Math.random() * height,
+            vx: (Math.random() - 0.5) * 0.35,
+            vy: -(0.3 + Math.random() * 0.6),
+            size: Math.random() * 2.5 + 1.2,
+            text: fragments[Math.floor(Math.random() * fragments.length)],
+            opacity: Math.random() * 0.45 + 0.15,
+            isBubble: Math.random() > 0.45,
+            bubbleRadius: Math.random() * 18 + 8,
+            colorHue: Math.random() > 0.4 ? 45 : 36 // warm gold & champagne
+          });
+        }
+
+        function renderCryptoParticles() {
+          ctx.clearRect(0, 0, width, height);
+
+          particles.forEach(p => {
+            p.x += p.vx;
+            p.y += p.vy;
+
+            if (p.y < -30) {
+              p.y = height + 20;
+              p.x = Math.random() * width;
+            }
+            if (p.x < -30) p.x = width + 20;
+            if (p.x > width + 30) p.x = -20;
+
+            if (p.isBubble) {
+              // Luminous delicate bubble with glowing edge
+              ctx.save();
+              ctx.beginPath();
+              ctx.arc(p.x, p.y, p.bubbleRadius, 0, Math.PI * 2);
+              ctx.strokeStyle = `hsla(${p.colorHue}, 80%, 65%, ${p.opacity * 0.4})`;
+              ctx.lineWidth = 1;
+              ctx.stroke();
+
+              // Subtle radial gradient fill
+              const grad = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.bubbleRadius);
+              grad.addColorStop(0, `hsla(${p.colorHue}, 80%, 70%, ${p.opacity * 0.08})`);
+              grad.addColorStop(1, 'rgba(0,0,0,0)');
+              ctx.fillStyle = grad;
+              ctx.fill();
+
+              // Monospace hash snippet inside or beside bubble
+              ctx.font = '10px "JetBrains Mono"';
+              ctx.fillStyle = `hsla(${p.colorHue}, 85%, 75%, ${p.opacity * 0.75})`;
+              ctx.fillText(p.text, p.x - (p.text.length * 2.8), p.y + 3);
+              ctx.restore();
+            } else {
+              // Cryptographic luminous micro-particle
+              ctx.save();
+              ctx.beginPath();
+              ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+              ctx.fillStyle = `hsla(${p.colorHue}, 90%, 65%, ${p.opacity})`;
+              ctx.shadowColor = `hsl(${p.colorHue}, 90%, 60%)`;
+              ctx.shadowBlur = 8;
+              ctx.fill();
+
+              if (Math.random() > 0.85) {
+                ctx.font = '9px "JetBrains Mono"';
+                ctx.fillStyle = `hsla(${p.colorHue}, 80%, 75%, ${p.opacity * 0.6})`;
+                ctx.fillText(p.text, p.x + 6, p.y + 3);
+              }
+              ctx.restore();
+            }
+          });
+
+          requestAnimationFrame(renderCryptoParticles);
+        }
+        renderCryptoParticles();
+      }
+
+      // Elements
+      const blockCards = document.querySelectorAll('.block-card');
+      const validationResultBox = document.getElementById('validationResultBox');
+      const toast = document.getElementById('ledgerToast');
+      const toastMsg = document.getElementById('toastMessage');
+      const toastIcon = document.getElementById('toastIcon');
+      const filterPills = document.querySelectorAll('.filter-pill');
+      const searchInput = document.getElementById('blockSearchInput');
+      const validateLedgerBtn = document.getElementById('validateLedgerBtn');
+      const runAuditBtn = document.getElementById('runAuditBtn');
+      const exportTrailBtn = document.getElementById('exportTrailBtn');
+
+      // Spec elements
+      const specBlockTitle = document.getElementById('specBlockTitle');
+      const specBlockBadge = document.getElementById('specBlockBadge');
+      const specTargetFile = document.getElementById('specTargetFile');
+      const specDocId = document.getElementById('specDocId');
+      const specFileSize = document.getElementById('specFileSize');
+      const specEventType = document.getElementById('specEventType');
+      const specTimestamp = document.getElementById('specTimestamp');
+      const currentBlockHashElem = document.getElementById('currentBlockHashElem');
+      const specPrevStatus = document.getElementById('specPrevStatus');
+      const specPrevHashElem = document.getElementById('specPrevHashElem');
+
+      // Mock Block Dataset strictly for C singly linked list inspection
+      const blockTelemetry = {
+        '42106': {
+          title: 'Block Specification #42,106',
+          badge: 'CHAIN LINK INTACT',
+          badgeClass: 'bg-tertiary text-on-tertiary',
+          file: 'security_policy_v2.pdf',
+          docId: 'security_policy_v2.pdf (ID: DOC-7028)',
+          size: '128.4 KB (131,482 bytes)',
+          event: 'Document Registration (fopen/fread buffer)',
+          time: 'November 17, 2026 • 13:58:04.118 UTC',
+          currHash: '9b2d14f27c88102e3b4a5f6c7d8e9a0b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f',
+          prevHash: '4f12ac08811d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f',
+          prevStatus: 'MATCHED — equals Block #42,105 current hash'
+        },
+        '42107': {
+          title: 'Block Specification #42,107',
+          badge: 'CHAIN LINK INTACT',
+          badgeClass: 'bg-tertiary text-on-tertiary',
+          file: 'customer_support_kb_v9.json',
+          docId: 'customer_support_kb_v9.json (ID: DOC-7029)',
+          size: '428.1 KB (438,412 bytes)',
+          event: 'Document Registration (C Buffer malloc)',
+          time: 'November 17, 2026 • 14:02:19.412 UTC',
+          currHash: '1f8e2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7b8c9d0e1f',
+          prevHash: '9b2d14f27c88102e3b4a5f6c7d8e9a0b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f',
+          prevStatus: 'MATCHED — equals Block #42,106 current hash'
+        },
+        '42108': {
+          title: 'Block Specification #42,108',
+          badge: 'MODIFICATION FLAGGED',
+          badgeClass: 'bg-error-container text-on-error-container',
+          file: 'kb_article_7029.md',
+          docId: 'kb_article_7029.md (ID: DOC-7030)',
+          size: '14.2 KB (14,538 bytes)',
+          event: 'Document Modification Alert (Diff Detected)',
+          time: 'November 17, 2026 • 14:15:33.804 UTC',
+          currHash: '7c4e5a2d338ce10a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f7a',
+          prevHash: '1f8e2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7b8c9d0e1f',
+          prevStatus: 'POINTER VERIFIED (Hash delta in payload +3 lines)'
+        },
+        '42109': {
+          title: 'Block Specification #42,109 (Head)',
+          badge: 'HEAD NODE SEALED',
+          badgeClass: 'bg-primary text-on-primary',
+          file: 'finance_terms_2026.docx',
+          docId: 'finance_terms_2026.docx (ID: DOC-7031)',
+          size: '892.6 KB (914,022 bytes)',
+          event: 'Document Verification & Head Commit',
+          time: 'November 17, 2026 • 14:28:44.009 UTC',
+          currHash: 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855',
+          prevHash: '7c4e5a2d338ce10a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f7a',
+          prevStatus: 'MATCHED — equals Block #42,108 current hash'
+        }
+      };
+
+      function showToast(message, icon = 'verified', color = 'text-primary') {
+        toastMsg.textContent = message;
+        toastIcon.textContent = icon;
+        toastIcon.className = `material-symbols-outlined ${color} text-[22px]`;
+        toast.classList.remove('translate-y-24', 'opacity-0');
+        toast.classList.add('translate-y-0', 'opacity-100');
+        setTimeout(() => {
+          toast.classList.add('translate-y-24', 'opacity-0');
+          toast.classList.remove('translate-y-0', 'opacity-100');
+        }, 3400);
+      }
+
+      // Mouse Parallax/Tilt for cards
+      const tiltCards = document.querySelectorAll('.tilt-card');
+      tiltCards.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left - rect.width / 2;
+          const y = e.clientY - rect.top - rect.height / 2;
+          card.style.transform = `perspective(600px) rotateX(${-y * 0.04}deg) rotateY(${x * 0.04}deg) translateY(-2px)`;
+        });
+        card.addEventListener('mouseleave', () => {
+          card.style.transform = '';
+        });
+      });
+
+      // Interactive Block Focusing & Updating Specification
+      blockCards.forEach(card => {
+        card.addEventListener('click', () => {
+          const blockId = card.getAttribute('data-block-id');
+          if (!blockId) return;
+
+          blockCards.forEach(c => {
+            c.classList.remove('active-block', 'anim-inspected-float', 'anim-active-glow', 'border-primary/60', 'bg-surface-container-high');
+            c.classList.add('bg-surface-container-low', 'border-outline-variant/30');
+            const inspectingBadge = c.querySelector('.absolute.-top-3');
+            if (inspectingBadge) inspectingBadge.remove();
+          });
+
+          card.classList.add('active-block', 'anim-inspected-float', 'anim-active-glow', 'border-primary/60', 'bg-surface-container-high');
+          card.classList.remove('bg-surface-container-low', 'border-outline-variant/30');
+
+          // Add inspecting badge dynamically if not present
+          if (!card.querySelector('.absolute.-top-3')) {
+            const badge = document.createElement('div');
+            badge.className = 'absolute -top-3 right-4 px-2.5 py-0.5 rounded-full bg-primary text-on-primary font-label-caps text-label-caps font-bold tracking-widest shadow-lg shadow-primary/30 flex items-center gap-1';
+            badge.innerHTML = '<span class="w-1.5 h-1.5 rounded-full bg-on-primary animate-ping"></span>INSPECTING';
+            card.appendChild(badge);
+          }
+
+          // Update Specification UI
+          const data = blockTelemetry[blockId];
+          if (data) {
+            specBlockTitle.textContent = data.title;
+            specBlockBadge.textContent = data.badge;
+            specBlockBadge.className = `px-2 py-0.5 rounded font-label-caps text-label-caps font-semibold ${data.badgeClass}`;
+            specTargetFile.textContent = `Target File: ${data.file}`;
+            specDocId.innerHTML = `<span class="material-symbols-outlined text-[18px] text-primary">description</span><span class="truncate">${data.docId}</span>`;
+            specFileSize.textContent = data.size;
+            specEventType.textContent = data.event;
+            specTimestamp.textContent = data.time;
+            currentBlockHashElem.textContent = data.currHash;
+            specPrevHashElem.textContent = data.prevHash;
+            specPrevStatus.textContent = data.prevStatus;
+          }
+
+          showToast(`Focused node struct #${blockId} • prev_hash verified`, 'hub', 'text-secondary');
+        });
+      });
+
+      // Simulated glowing traversal scan wave across all pointer nodes
+      function triggerPointerScanWave() {
+        const cards = Array.from(blockCards);
+        cards.forEach((c, index) => {
+          setTimeout(() => {
+            c.classList.add('glow-audit-scan');
+            setTimeout(() => c.classList.remove('glow-audit-scan'), 600);
+          }, index * 260);
+        });
+      }
+
+      // Validate Ledger Action
+      validateLedgerBtn?.addEventListener('click', () => {
+        triggerPointerScanWave();
+        validationResultBox.innerHTML = `
+          <div class="flex items-center gap-space-xs text-primary animate-pulse">
+            <span class="material-symbols-outlined text-[20px] animate-spin">sync</span>
+            <span class="font-bold">TRAVERSING C LINKED-LIST (node->prev)...</span>
+          </div>
+          <span class="text-[11px] text-outline">OpenSSL EVP SHA-256</span>
+        `;
+        setTimeout(() => {
+          validationResultBox.innerHTML = `
+            <div class="flex items-center gap-space-xs text-tertiary">
+              <span class="material-symbols-outlined text-[20px]">verified</span>
+              <span class="font-bold">CHAIN VALID: 42,109 CONTINUOUS</span>
+            </div>
+            <span class="text-[11px] text-tertiary">0.03ms (Verified)</span>
+          `;
+          document.getElementById('lastScanTime').textContent = 'Last Scan: Just now';
+          showToast('Sequential pointer chain intact: 42,109 / 42,109 hashes matched', 'verified', 'text-tertiary');
+        }, 1100);
+      });
+
+      // Run Sequential Pointer Audit Action
+      runAuditBtn?.addEventListener('click', () => {
+        triggerPointerScanWave();
+        validationResultBox.innerHTML = `
+          <div class="flex items-center gap-space-xs text-primary animate-pulse">
+            <span class="material-symbols-outlined text-[20px] animate-spin">account_tree</span>
+            <span class="font-bold">AUDITING POINTER CONTINUITY...</span>
+          </div>
+          <span class="text-[11px] text-secondary">Checking digests</span>
+        `;
+        setTimeout(() => {
+          validationResultBox.innerHTML = `
+            <div class="flex items-center gap-space-xs text-tertiary">
+              <span class="material-symbols-outlined text-[20px]">verified</span>
+              <span class="font-bold">POINTER CONTINUITY: 100% SOUND</span>
+            </div>
+            <span class="text-[11px] text-tertiary">0 Broken Pointers</span>
+          `;
+          document.getElementById('lastScanTime').textContent = 'Last Scan: Just now';
+          showToast('Audit complete: struct ledger_node reverse pointers validated', 'check_circle', 'text-tertiary');
+        }, 1200);
+      });
+
+      // Export Audit Trail
+      exportTrailBtn?.addEventListener('click', () => {
+        const dummyLedgerData = {
+          head_block: 42109,
+          architecture: "C singly linked-list (struct ledger_node *prev)",
+          crypto_engine: "OpenSSL EVP SHA-256",
+          head_hash: "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          total_nodes: 42109,
+          pointer_consistency: "100%",
+          timestamp_utc: new Date().toISOString()
+        };
+        const blob = new Blob([JSON.stringify(dummyLedgerData, null, 2)], { type: "application/json" });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `ragshield-hash-ledger-audit.json`;
+        a.click();
+        URL.revokeObjectURL(url);
+        showToast('Local cryptographic audit trail downloaded', 'download_done', 'text-tertiary');
+      });
+
+      // Filter pills
+      filterPills.forEach(pill => {
+        pill.addEventListener('click', () => {
+          filterPills.forEach(p => {
+            p.classList.remove('bg-primary-container', 'text-on-primary-container', 'font-semibold', 'shadow-sm');
+            p.classList.add('text-on-surface-variant');
+          });
+          pill.classList.add('bg-primary-container', 'text-on-primary-container', 'font-semibold', 'shadow-sm');
+          pill.classList.remove('text-on-surface-variant');
+          showToast(`Filtered ledger views: ${pill.textContent.trim()}`, 'filter_alt', 'text-primary');
+        });
+      });
+
+      // Search input enter trigger
+      searchInput?.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+          const val = searchInput.value.trim();
+          if (val) {
+            showToast(`Found 1 block matching: "${val}"`, 'search', 'text-primary');
+          }
+        }
+        if (e.key === 'Escape') {
+          searchInput.value = '';
+          showToast('Search filter reset', 'restart_alt', 'text-outline');
+        }
+      });
+    })();
+  </script>
+</div></main></div></body></html>
