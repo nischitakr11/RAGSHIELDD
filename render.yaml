@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: ragshield-api
+    runtime: docker
+    plan: starter
+    dockerfilePath: ./backend/Dockerfile
+    dockerContext: .
+    healthCheckPath: /api/health
+    disk:
+      name: ragshield-data
+      mountPath: /var/data
+      sizeGB: 1

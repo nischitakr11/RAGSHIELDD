@@ -7,6 +7,17 @@
 #define LEDGER_FILE "ragshield-ledger.txt"
 #define TEMP_FILE "ragshield-ledger.tmp"
 
+void getLedgerPaths(char *ledgerPath, char *tempPath)
+{
+    const char *dir = getenv("RAGSHIELD_DATA_DIR");
+
+    if (dir == NULL || dir[0] == '\0')
+        dir = ".";
+
+    snprintf(ledgerPath, 512, "%s/%s", dir, LEDGER_FILE);
+    snprintf(tempPath, 512, "%s/%s", dir, TEMP_FILE);
+}
+
 int calculateSHA256(const char *filename, char hash[65]);
 
 typedef struct Block
@@ -137,7 +148,10 @@ int verifyLedger()
 
 int saveLedger()
 {
-    FILE *file = fopen(TEMP_FILE, "w");
+    char ledgerPath[512], tempPath[512];
+getLedgerPaths(ledgerPath, tempPath);
+
+FILE *file = fopen(tempPath, "w");
     Block *temp = head;
 
     if (file == NULL)
@@ -151,7 +165,7 @@ int saveLedger()
                     temp->blockHash) < 0)
         {
             fclose(file);
-            remove(TEMP_FILE);
+            remove(tempPath);
             return 0;
         }
 
@@ -160,13 +174,13 @@ int saveLedger()
 
     if (fclose(file) != 0)
     {
-        remove(TEMP_FILE);
+        remove(tempPath);
         return 0;
     }
 
-    if (rename(TEMP_FILE, LEDGER_FILE) != 0)
+    if (rename(tempPath, ledgerPath) != 0)
     {
-        remove(TEMP_FILE);
+        remove(tempPath);
         return 0;
     }
 
@@ -175,7 +189,10 @@ int saveLedger()
 
 int loadLedger()
 {
-    FILE *file = fopen(LEDGER_FILE, "r");
+    char ledgerPath[512], tempPath[512];
+getLedgerPaths(ledgerPath, tempPath);
+
+FILE *file = fopen(ledgerPath, "r");
     char line[700];
 
     if (file == NULL)
